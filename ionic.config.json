@@ -1,5 +1,7 @@
 {
   "name": "spk_sekolahdasar",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,5 +1,19 @@
 import { Component } from '@angular/core';
+import { UserService } from '../user.service';
+import { ThemeService } from '../theme.service';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
+const themes = {
+  night:{
+    primary:'#8CBA80',
+    secondary:'#FCFF6C',
+    tertiary:'#FE5F55',
+    medium:'#BCC2C7',
+    dark:'#F7F7FF',
+    light:'#495867'
+  }
+}
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -7,6 +21,16 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(public theme:ThemeService,public user:UserService,public alertController: AlertController, private router: Router) {}
+
+
+  ngOnInit():void {
+  	console.log('hahahah');
+  	if(localStorage['username'] == 0){  
+  		this.router.navigate(['/login'])
+  	}
+  }
+
+ 
 
 }

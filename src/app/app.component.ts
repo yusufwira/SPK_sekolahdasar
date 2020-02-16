@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { HeaderColor } from '@ionic-native/header-color/ngx';
 
 @Component({
   selector: 'app-root',
@@ -17,24 +19,53 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
+      title: 'Dashboard',
+      url: '/dashboard',
+      icon: 'logo-buffer'
+    },
+    {
+      title: 'Daftar Sekolah',
       url: '/list',
-      icon: 'list'
+      icon: 'list-box'
+    },
+    {
+      title: 'Sistem Penunjang Keputusan',
+      url: '/list',
+      icon: 'cog'
+    },
+    {
+      title: 'Logout',
+      url: '/login',
+      icon: 'log-out'
     }
   ];
 
+  activeMenu: string;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    public menu: MenuController
   ) {
     this.initializeApp();
-  }
 
-  initializeApp() {
+  }
+  nama:string;
+
+   initializeApp() {
+  
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.nama = localStorage['nama']
+     
     });
+  }
+
+
+  menu1Active() {
+    this.activeMenu = 'menu1';   
+    this.menu.enable(false, 'menu2');
+    console.log("fak")
   }
 }

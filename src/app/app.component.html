@@ -2,16 +2,19 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-header>
-        <ion-toolbar>
-          <ion-title>Menu</ion-title>
+        <ion-toolbar class="bar-profile" color="tertiary">
+           <div class="profile">
+            <img class="profile-picture" src="http://ionicframework.com/img/docs/mcfly.jpg" />
+            <h3 class="name">{{nama}}</h3>
+        </div>
         </ion-toolbar>
       </ion-header>
       <ion-content>
         <ion-list>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages" >
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" >
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>
+              <ion-label >
                 {{p.title}}
               </ion-label>
             </ion-item>
