@@ -4,6 +4,7 @@ import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,6 +21,11 @@ export class LoginComponent implements OnInit {
   ngOnInit():void {
     localStorage['username']=0;
     localStorage['nama']=0;
+    this.ionViewWillEnter()
+  }
+
+  ionViewWillEnter() {
+    this.menu.enable(false);
   }
 
   username="";

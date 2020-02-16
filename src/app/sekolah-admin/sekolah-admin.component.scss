@@ -1,0 +1,38 @@
+.bg{
+    height: 40%;
+    width: 100%;
+    padding: 10px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    background:  linear-gradient(90deg, rgba(4,9,255,1) 0%, rgba(71,90,255,1) 50%, rgba(0,241,255,1) 100%);
+}
+
+.header{
+    color:white;
+   
+}
+
+.card{
+  height: 120px;
+  border-radius: 10px;
+  
+}
+
+.card-content{
+  text-align: left;
+  img{
+    height: 100px;
+  }
+  ion-icon{
+    font-size: 20px;
+  }
+
+  .nama{
+    font-size: 25px;
+  }
+  
+}
+
+ion-fab-button{
+  margin-bottom:100px;
+}

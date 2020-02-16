@@ -17,6 +17,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { Registrasi2Component } from './registrasi2/registrasi2.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SekolahAdminComponent } from './sekolah-admin/sekolah-admin.component';
+
 
 
 
@@ -26,6 +28,8 @@ const appRoutes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'register_info/:username/:password/:email',component:Registrasi2Component},
   {path:'dashboard',component:DashboardComponent},
+  {path:'sekolah-admin',component:SekolahAdminComponent},
+
   ];
 
 
@@ -37,6 +41,8 @@ const appRoutes: Routes = [
   RegisterComponent,
   Registrasi2Component,
   DashboardComponent,
+  SekolahAdminComponent,
+
   ],
   entryComponents: [],
   imports: [

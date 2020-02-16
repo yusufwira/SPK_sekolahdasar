@@ -3,6 +3,7 @@ import { UserService } from '../user.service';
 import { ThemeService } from '../theme.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 const themes = {
   night:{
@@ -21,14 +22,18 @@ const themes = {
 })
 export class HomePage {
 
-  constructor(public theme:ThemeService,public user:UserService,public alertController: AlertController, private router: Router) {}
+  constructor(public menu: MenuController, public theme:ThemeService,public user:UserService,public alertController: AlertController, private router: Router) {}
 
 
   ngOnInit():void {
-  	console.log('hahahah');
+  	
   	if(localStorage['username'] == 0){  
   		this.router.navigate(['/login'])
   	}
+  }
+
+  ionViewWillEnter() {
+    this.menu.enable(true);
   }
 
  
