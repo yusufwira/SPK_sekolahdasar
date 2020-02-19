@@ -4,6 +4,10 @@ import { RouteReuseStrategy } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import  { Routes, RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+import {  FileUploadOptions } from '@ionic-native/file-transfer/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -18,6 +22,11 @@ import { RegisterComponent } from './register/register.component';
 import { Registrasi2Component } from './registrasi2/registrasi2.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SekolahAdminComponent } from './sekolah-admin/sekolah-admin.component';
+import { EktrakurikulerAdminComponent } from './ektrakurikuler-admin/ektrakurikuler-admin.component';
+import { EkstrakurikulerCreateComponent } from './ekstrakurikuler-create/ekstrakurikuler-create.component';
+import { KriteriaAdminComponent } from './kriteria-admin/kriteria-admin.component';
+import { KriteriaCreateComponent } from './kriteria-create/kriteria-create.component';
+
 
 
 
@@ -29,6 +38,10 @@ const appRoutes: Routes = [
   {path:'register_info/:username/:password/:email',component:Registrasi2Component},
   {path:'dashboard',component:DashboardComponent},
   {path:'sekolah-admin',component:SekolahAdminComponent},
+  {path:'ekstrakurikuler-admin',component:EktrakurikulerAdminComponent},
+  {path:'ekstrakurikuler-create',component:EkstrakurikulerCreateComponent},
+  {path:'kriteria-admin',component:KriteriaAdminComponent},
+  {path:'kriteria-create',component:KriteriaCreateComponent},
 
   ];
 
@@ -42,6 +55,10 @@ const appRoutes: Routes = [
   Registrasi2Component,
   DashboardComponent,
   SekolahAdminComponent,
+  EktrakurikulerAdminComponent,
+  EkstrakurikulerCreateComponent,
+  KriteriaAdminComponent,
+  KriteriaCreateComponent,
 
   ],
   entryComponents: [],
@@ -58,7 +75,11 @@ const appRoutes: Routes = [
     SplashScreen,
     HeaderColor,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-
+    FileTransfer,
+    //FileUploadOptions,
+    //FileTransferObject,
+    File,
+    Camera
   ],
   bootstrap: [AppComponent]
 })

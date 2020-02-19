@@ -41,7 +41,7 @@
               <ion-row class="card-action">  
                             
                 <ion-button color="success"><ion-icon name="eye"></ion-icon></ion-button>&nbsp; 
-                <ion-button color="warning">Update</ion-button> &nbsp;
+                <ion-button color="warning"><ion-icon name="create"></ion-icon></ion-button> &nbsp;
                 <ion-button color="danger" (click)="peringatan()"><ion-icon name="trash"></ion-icon></ion-button> &nbsp;
               </ion-row>     
             </ion-col>
@@ -54,9 +54,12 @@
 </ion-content>
 
 
-  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+  <ion-fab horizontal="end" vertical="end" slot="fixed" class="fab">
     <ion-fab-button color="danger">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
+
+
 

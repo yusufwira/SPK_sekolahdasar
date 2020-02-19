@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router, CanActivate, ActivatedRoute, RouterStateSnapshot } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+//import { NavController, LoadingController, ToastController } from 'ionic-angular';
+
 
 @Component({
   selector: 'app-registrasi2',
@@ -9,8 +13,9 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./registrasi2.component.scss'],
 })
 export class Registrasi2Component implements OnInit {
-
-  constructor( private route: ActivatedRoute, public user:UserService,public alertController: AlertController) { }
+  imageURI:any;
+  imageFileName:any;
+  constructor( private route: ActivatedRoute, public user:UserService,public alertController: AlertController,private transfer: FileTransfer,private camera: Camera) { }
 
   parent= false;
   school = false;
@@ -22,12 +27,18 @@ export class Registrasi2Component implements OnInit {
   kecamatan="";
   notelp="";
   email="";
+  public pic:any;
   hak_akses="";
   ngOnInit() {
   	this.username = this.route.snapshot.params['username'];
   	this.password = this.route.snapshot.params['password'];
   	this.email = this.route.snapshot.params['email'];
   	console.log(this.username+" "+this.password+" "+this.email)
+  }
+
+  coba(){
+    var fileVal=document.getElementById("pic ");
+    console.log(fileVal)
   }
 
   active_parent(){
@@ -55,9 +66,12 @@ export class Registrasi2Component implements OnInit {
    }
 
    optionsFn():void{
-   	console.log(this.kecamatan);
-   	let item = this.kecamatan;
-   	this.kecamatan = item;
+
+      this.pic = document.getElementById("Id");
+      console.log(this.pic);
+     
+   	  let item = this.kecamatan;
+   	  this.kecamatan = item;
    }
 
 
@@ -85,6 +99,45 @@ export class Registrasi2Component implements OnInit {
       buttons: ['OK']
     }).then(alert=> alert.present());;
    }
+
+   getImage() {
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+    }
+  
+    this.camera.getPicture(options).then((imageData) => {
+      this.imageURI = imageData;
+    }, (err) => {
+      console.log(err);
+      
+    });
+  }
+
+  uploadFile() {
+    
+    const fileTransfer: FileTransferObject = this.transfer.create();
+  
+    let options: FileUploadOptions = {
+      fileKey: 'ionicfile',
+      fileName: 'ionicfile',
+      chunkedMode: false,
+      mimeType: "image/jpeg",
+      headers: {}
+    }
+  
+    fileTransfer.upload(this.imageURI, 'http://192.168.0.7:8080/api/uploadImage', options)
+      .then((data) => {
+      console.log(data+" Uploaded Successfully");
+      this.imageFileName = "http://192.168.0.7:8080/static/images/ionicfile.jpg"
+      
+      
+    }, (err) => {
+      console.log(err);
+      
+    });
+  }
 
   
 

@@ -24,12 +24,12 @@ export class AppComponent {
       icon: 'logo-buffer'
     },
     {
-      title: 'Daftar Sekolah',
+      title: 'List Elementary School',
       url: '/list',
       icon: 'list-box'
     },
     {
-      title: 'Sistem Penunjang Keputusan',
+      title: 'Decission Suport System',
       url: '/list',
       icon: 'cog'
     },
@@ -57,7 +57,9 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      //localStorage['username'] =0;
       this.nama = localStorage['nama']
+
      
     });
   }

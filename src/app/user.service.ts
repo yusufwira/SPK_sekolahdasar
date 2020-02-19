@@ -30,6 +30,10 @@ export class UserService {
     return this.http.get("http://localhost/ta_backend/Auth/Login.php?username="+this.username+"&password="+this.password);
   }
 
+  jumlahUsers(){
+    return this.http.get("http://localhost/ta_backend/Auth/jumlah.php?");
+  }
+
 
 
 }
