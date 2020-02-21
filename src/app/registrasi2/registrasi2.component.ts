@@ -4,7 +4,8 @@ import { Router, CanActivate, ActivatedRoute, RouterStateSnapshot } from '@angul
 import { AlertController } from '@ionic/angular';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-//import { NavController, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, LoadingController, ToastController } from '@ionic/angular';
+
 
 
 @Component({
@@ -15,7 +16,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 export class Registrasi2Component implements OnInit {
   imageURI:any;
   imageFileName:any;
-  constructor( private route: ActivatedRoute, public user:UserService,public alertController: AlertController,private transfer: FileTransfer,private camera: Camera) { }
+  constructor( private route: ActivatedRoute, public user:UserService,public alertController: AlertController,private transfer: FileTransfer,private camera: Camera, public loadingCtrl: LoadingController,
+    public toastCtrl: ToastController,private router: Router) { }
 
   parent= false;
   school = false;
@@ -29,6 +31,8 @@ export class Registrasi2Component implements OnInit {
   email="";
   public pic:any;
   hak_akses="";
+  img="";
+  namaPhoto = "";
   ngOnInit() {
   	this.username = this.route.snapshot.params['username'];
   	this.password = this.route.snapshot.params['password'];
@@ -36,9 +40,22 @@ export class Registrasi2Component implements OnInit {
   	console.log(this.username+" "+this.password+" "+this.email)
   }
 
+file: File;
+ changeListener($event) : void {
+    this.file = $event.target.files[0];
+    this.user.file = this.file;
+    this.user.username = this.username;
+    this.user.coba().subscribe((data) => {  
+      this.img = data['link'];
+      this.namaPhoto = data['namafile'];
+      console.log(data);
+    });
+    
+  }
+
   coba(){
-    var fileVal=document.getElementById("pic ");
-    console.log(fileVal)
+    //var fileVal=document.getElementById("pic ");
+    console.log(this.pic)
   }
 
   active_parent(){
@@ -84,7 +101,8 @@ export class Registrasi2Component implements OnInit {
       this.user.notelp = this.notelp;
       this.user.kecamatan = this.kecamatan;
       this.user.hak = this.hak_akses;
-
+      this.user.photo = this.namaPhoto;
+     
       this.user.Registrasi().subscribe((data) => {      
         console.log(data);
         this.peringatan(data);                
@@ -96,49 +114,14 @@ export class Registrasi2Component implements OnInit {
      const alert =  this.alertController.create({
       header: 'Registrasi',
       message: data,
-      buttons: ['OK']
+      buttons: [
+        {
+          text: 'Okay',
+          handler: () => {
+            this.router.navigate(['/login'])
+          }
+        }
+      ]
     }).then(alert=> alert.present());;
    }
-
-   getImage() {
-    const options: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
-    }
-  
-    this.camera.getPicture(options).then((imageData) => {
-      this.imageURI = imageData;
-    }, (err) => {
-      console.log(err);
-      
-    });
-  }
-
-  uploadFile() {
-    
-    const fileTransfer: FileTransferObject = this.transfer.create();
-  
-    let options: FileUploadOptions = {
-      fileKey: 'ionicfile',
-      fileName: 'ionicfile',
-      chunkedMode: false,
-      mimeType: "image/jpeg",
-      headers: {}
-    }
-  
-    fileTransfer.upload(this.imageURI, 'http://192.168.0.7:8080/api/uploadImage', options)
-      .then((data) => {
-      console.log(data+" Uploaded Successfully");
-      this.imageFileName = "http://192.168.0.7:8080/static/images/ionicfile.jpg"
-      
-      
-    }, (err) => {
-      console.log(err);
-      
-    });
-  }
-
-  
-
 }

@@ -50,10 +50,16 @@ export class LoginComponent implements OnInit {
         else{
         	localStorage['username'] = this.username;
           console.log(data[0].nama_user)
-          localStorage['nama'] = data[0].nama_user
+          localStorage['nama'] = data[0].nama_user;
+          localStorage['photo'] = data[0].photo;
         	this.router.navigate(['/home'])
         }
-    });
+    },(error)=>{
+      this.peringatan();
+      console.log()
+    }
+    );
+  
    }
 
 

@@ -51,6 +51,9 @@ export class AppComponent {
 
   }
   nama:string;
+  public username ="";
+  public photo ="";
+  public img ="";
 
    initializeApp() {
   
@@ -58,7 +61,11 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       //localStorage['username'] =0;
-      this.nama = localStorage['nama']
+      this.nama = localStorage['nama'];
+      this.username = localStorage['username'];
+      this.photo = localStorage['photo'];
+      this.img = "http://localhost/ta_backend/Auth/profile/"+this.username+"/"+this.photo
+     
 
      
     });
@@ -69,5 +76,6 @@ export class AppComponent {
     this.activeMenu = 'menu1';   
     this.menu.enable(false, 'menu2');
     console.log("fak")
+    console.log(this.img)
   }
 }
