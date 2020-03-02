@@ -22,6 +22,8 @@ import { RegisterComponent } from './register/register.component';
 import { Registrasi2Component } from './registrasi2/registrasi2.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SekolahAdminComponent } from './sekolah-admin/sekolah-admin.component';
+import { SekolahCreateComponent } from './sekolah-create/sekolah-create.component';
+import { SekolahCreateAComponent } from './sekolah-create-a/sekolah-create-a.component';
 import { EktrakurikulerAdminComponent } from './ektrakurikuler-admin/ektrakurikuler-admin.component';
 import { EkstrakurikulerCreateComponent } from './ekstrakurikuler-create/ekstrakurikuler-create.component';
 import { KriteriaAdminComponent } from './kriteria-admin/kriteria-admin.component';
@@ -38,6 +40,8 @@ const appRoutes: Routes = [
   {path:'register_info/:username/:password/:email',component:Registrasi2Component},
   {path:'dashboard',component:DashboardComponent},
   {path:'sekolah-admin',component:SekolahAdminComponent},
+  {path:'sekolah-create',component:SekolahCreateComponent},
+  {path:'sekolah-create-a',component:SekolahCreateAComponent},
   {path:'ekstrakurikuler-admin',component:EktrakurikulerAdminComponent},
   {path:'ekstrakurikuler-create',component:EkstrakurikulerCreateComponent},
   {path:'kriteria-admin',component:KriteriaAdminComponent},
@@ -55,10 +59,13 @@ const appRoutes: Routes = [
   Registrasi2Component,
   DashboardComponent,
   SekolahAdminComponent,
+  SekolahCreateComponent,
+  SekolahCreateAComponent,
   EktrakurikulerAdminComponent,
   EkstrakurikulerCreateComponent,
   KriteriaAdminComponent,
   KriteriaCreateComponent,
+  
 
   ],
   entryComponents: [],

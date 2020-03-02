@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 
 import { Platform } from '@ionic/angular';
@@ -11,7 +11,7 @@ import { HeaderColor } from '@ionic-native/header-color/ngx';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Home',
@@ -50,12 +50,19 @@ export class AppComponent {
     this.initializeApp();
 
   }
+
+
+  ngOnInit() {
+    console.log("this.username+this.nama")
+  }
+
+ 
   nama:string;
   public username ="";
   public photo ="";
   public img ="";
 
-   initializeApp() {
+   initializeApp():void {
   
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
@@ -65,10 +72,13 @@ export class AppComponent {
       this.username = localStorage['username'];
       this.photo = localStorage['photo'];
       this.img = "http://localhost/ta_backend/Auth/profile/"+this.username+"/"+this.photo
+    
+     
      
 
      
     });
+    //this.initializeApp();
   }
 
 

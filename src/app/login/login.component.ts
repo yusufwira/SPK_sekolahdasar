@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   ngOnInit():void {
     localStorage['username']=0;
     localStorage['nama']=0;
+    localStorage['photo']=0;
     this.ionViewWillEnter()
   }
 
@@ -50,6 +51,7 @@ export class LoginComponent implements OnInit {
         else{
         	localStorage['username'] = this.username;
           console.log(data[0].nama_user)
+          localStorage['iduser'] = data[0].id_users;
           localStorage['nama'] = data[0].nama_user;
           localStorage['photo'] = data[0].photo;
         	this.router.navigate(['/home'])
