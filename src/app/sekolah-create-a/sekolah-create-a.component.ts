@@ -131,21 +131,22 @@ export class SekolahCreateAComponent implements OnInit {
     console.log(this.ket);  
   }
 
-  public idSekolah="";
-  Create(){  
+  public idSekolahs="";
+  Create():void{  
     var data2 = {internet:this.internet, listrik:this.listrik, ruangAc:this.ruangAc, dayaListrik:this.dayaListrik, luasTanah:this.luasTanah, jumlahKelas:this.jumlahKelas, jumlahLab:this.jumlahLab, jumlahPerpus:this.jumlahPerpus, X:this.X, Y:this.Y, ket:this.ket};
     this.sekolah.userid = localStorage['iduser'];
     this.sekolah.data1 = this.data1;
     this.sekolah.data2 = data2;
     this.sekolah.datafoto = this.datafoto;
     this.sekolah.Create().subscribe((data) => {      
-      this.idSekolah = data;           
-    });;
-
-    this.sekolah.idSekolah = this.idSekolah;
-    this.sekolah.uploudFoto().subscribe((data) => {      
-      console.log(data);      
-    });;
+      this.idSekolahs = data;     
+      this.sekolah.idSekolah = this.idSekolahs;
+      this.sekolah.uploudFoto().subscribe((data) => {    
+        this.router.navigate(['/sekolah-create-b',this.idSekolahs])               
+      });       
+    });
+   
+    
   }
 
 

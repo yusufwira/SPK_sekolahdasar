@@ -17,6 +17,11 @@ export class SekolahService {
   img:any;
   photo="";
 
+
+  ListSekolah():Observable<any>{
+    return this.http.get("http://localhost/ta_backend/sekolah/list.php");
+  }
+
   upload():Observable<any>{
     let body = new HttpParams();
     let Data:FormData = new FormData();
@@ -24,6 +29,21 @@ export class SekolahService {
     Data.append('username', this.username); 
     return this.http.post<any>
     ("http://localhost/ta_backend/sekolah/upload.php", Data);
+  }
+
+  ekstra= [];
+  sekolah= "";
+  
+  AddEkstra():Observable<any>{
+    console.log(this.ekstra);
+    let body = new HttpParams();
+    let Data:FormData = new FormData();
+    for (let index = 0; index < this.ekstra.length; index++) {
+      Data.append("idEkstra["+index+"]", this.ekstra[index]);           
+    }
+    Data.append('idSekolah', this.sekolah); 
+    return this.http.post<any>
+    ("http://localhost/ta_backend/sekolah/createEkstrakurikuler.php", Data);
   }
 
   data1:any;
@@ -79,6 +99,7 @@ export class SekolahService {
       data.append("nama["+index+"]", this.datafoto[index].nama);
       data.append("ext["+index+"]", this.datafoto[index].ext);       
     }
+    console.log(this.idSekolah);
     data.append("idSekolah",this.idSekolah);
     var hasil = this.http.post<any>
     ("http://localhost/ta_backend/sekolah/foto.php", data);

@@ -24,6 +24,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SekolahAdminComponent } from './sekolah-admin/sekolah-admin.component';
 import { SekolahCreateComponent } from './sekolah-create/sekolah-create.component';
 import { SekolahCreateAComponent } from './sekolah-create-a/sekolah-create-a.component';
+import { SekolahCreateBComponent } from './sekolah-create-b/sekolah-create-b.component';
 import { EktrakurikulerAdminComponent } from './ektrakurikuler-admin/ektrakurikuler-admin.component';
 import { EkstrakurikulerCreateComponent } from './ekstrakurikuler-create/ekstrakurikuler-create.component';
 import { KriteriaAdminComponent } from './kriteria-admin/kriteria-admin.component';
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
   {path:'sekolah-admin',component:SekolahAdminComponent},
   {path:'sekolah-create',component:SekolahCreateComponent},
   {path:'sekolah-create-a',component:SekolahCreateAComponent},
+  {path:'sekolah-create-b/:id',component:SekolahCreateBComponent},
   {path:'ekstrakurikuler-admin',component:EktrakurikulerAdminComponent},
   {path:'ekstrakurikuler-create',component:EkstrakurikulerCreateComponent},
   {path:'kriteria-admin',component:KriteriaAdminComponent},
@@ -61,10 +63,12 @@ const appRoutes: Routes = [
   SekolahAdminComponent,
   SekolahCreateComponent,
   SekolahCreateAComponent,
+  SekolahCreateBComponent,
   EktrakurikulerAdminComponent,
   EkstrakurikulerCreateComponent,
   KriteriaAdminComponent,
   KriteriaCreateComponent,
+  
   
 
   ],

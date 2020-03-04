@@ -21,20 +21,20 @@
         </ion-card>
      
 
-    <ion-card color="light" class="card">
+    <ion-card color="light" class="card" *ngFor="let data of dataSekolah">
           <ion-row class="card-content">
             <ion-col size="4">
               <div>
-                <img src="https://sdmuhbausasran.sch.id/wp-content/uploads/2017/04/20170516_112729.jpg" alt=""> &nbsp;
+                <img src="http://localhost/ta_backend/sekolah/image/{{data.username}}/{{data.nama_foto}}.{{data.extention}}" alt=""> &nbsp;
               </div>
               </ion-col>
             <ion-col>
               <ion-row>
                 <div class="nama">
-                  Nama sekolah
+                  {{data.nama_sekolah}}
                 </div>
                 <div class="rating">
-                  Rating : 4.5 &nbsp; coment: 5
+                  Rating : {{data.rating}} 
                 </div>
               </ion-row>
               <br>

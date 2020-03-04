@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { SekolahService } from '../sekolah.service';
 
 @Component({
   selector: 'app-sekolah-admin',
@@ -8,9 +9,17 @@ import { AlertController } from '@ionic/angular';
 })
 export class SekolahAdminComponent implements OnInit {
 
-  constructor(public alertController: AlertController) { }
+  constructor(public alertController: AlertController, public sekolah:SekolahService) { }
 
-  ngOnInit() {}
+  public dataSekolah= [];
+
+  ngOnInit() {
+    this.sekolah.ListSekolah().subscribe((data) => {    
+     this.dataSekolah = data;
+     
+     console.log(this.dataSekolah);            
+    });
+  }
 
   peringatan(){
     const alert =  this.alertController.create({
