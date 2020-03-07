@@ -17,6 +17,14 @@ export class SekolahService {
   img:any;
   photo="";
 
+  id="";
+  DetailSekolah():Observable<any>{
+    return this.http.get("http://localhost/ta_backend/sekolah/detailSekolah.php?id_sekolah="+this.id);
+  }
+
+  DetailEkstra():Observable<any>{
+    return this.http.get("http://localhost/ta_backend/sekolah/detailSekolahEkstra.php?id_sekolah="+this.id);
+  }
 
   ListSekolah():Observable<any>{
     return this.http.get("http://localhost/ta_backend/sekolah/list.php");

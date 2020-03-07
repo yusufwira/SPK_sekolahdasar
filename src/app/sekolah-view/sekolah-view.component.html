@@ -1,0 +1,180 @@
+<ion-header >
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title >
+      Detail Sekolah  
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<h2 style="text-align: center;"><b>{{nama_sekolah}}</b></h2>
+<ion-slides spaceBetween="10">
+  <ion-slide *ngFor="let foto of arr_foto">
+    <img src="http://localhost/ta_backend/sekolah/image/{{username}}/{{foto.nama_foto}}.{{foto.extention}}" alt="">
+  </ion-slide>
+</ion-slides>
+<br>
+<div class="information">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="1">
+        <ion-icon color="danger" name="location-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        {{alamat}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="1">
+        <ion-icon color="success" name="call-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="11" >
+        {{no_telp}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="7">
+        <ion-card style="border-top: 3px solid greenyellow">
+          <ion-card-header >
+            Agama : <a>{{agama}}</a>
+          </ion-card-header>
+        </ion-card>
+        <ion-card style="border-top: 3px solid red">
+          <ion-card-header >
+            Nama Kepala Sekolah :<br> <a>{{kepala_sekolah}}</a>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="5" >
+        <ion-card style="border-top: 3px solid orange">
+          <ion-card-header >
+            Akreditasi : <a>{{akreditasi}}</a>
+            <p>Tahun Akreditasi <a>{{tahun_akreditasi}}</a></p>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4" >
+        <ion-card style="border-top: 3px solid blue">
+          <ion-card-header>
+            Kurikulum: <a > {{kurikulum}} </a>
+            <p>Jam Sekolah :<br> {{jam}}</p>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="8">
+        <ion-card  style="border-top: 3px solid blueviolet">
+          <ion-card-header>
+            Jumlah Guru : {{j_guru}}
+          </ion-card-header>
+        </ion-card>
+        <ion-card style="border-top: 3px solid blueviolet">
+          <ion-card-header>
+            Jumlah Siswa Laki-laki : {{j_laki}}
+          </ion-card-header>
+        </ion-card>
+        <ion-card  style="border-top: 3px solid blueviolet">
+          <ion-card-header>
+            Jumlah Siswa Perempuan : {{j_perempuan}}
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size='12'>
+        <ion-card >
+          <ion-card-header color="warning">
+            Fasilitas
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item slot="start">
+              Internet : &nbsp;
+              <ion-icon *ngIf="internet == 'ya'" name="checkmark-circle-outline" color="success"></ion-icon>
+              <ion-icon *ngIf="internet == 'tidak'" name="close-circle-outline" color="danger"></ion-icon>
+            </ion-item>
+            <ion-item slot="start">
+              AC : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <ion-icon *ngIf="ac == 'ya'" name="checkmark-circle-outline" color="success"></ion-icon>
+              <ion-icon *ngIf="ac == 'tidak'" name="close-circle-outline" color="danger"></ion-icon>
+            </ion-item>
+            <ion-item slot="start">
+              Listrk : &nbsp;&nbsp;&nbsp;&nbsp;
+              <ion-icon *ngIf="listrik == 'ya'" name="checkmark-circle-outline" color="success"></ion-icon>
+              <ion-icon *ngIf="listrik == 'tidak'" name="close-circle-outline" color="danger"></ion-icon>
+            </ion-item>
+            <ion-item slot="start" *ngIf="listrik == 'ya'">
+              Daya Listrik : &nbsp;
+              <a>{{daya_listrik}} W</a> 
+            </ion-item>
+            <ion-item slot="start">
+              Luas Tanah: &nbsp;
+              <a>{{luas_tanah}} m<sup>2</sup></a> 
+            </ion-item>
+            <ion-item slot="start">
+              Jumlah Kelas: &nbsp;
+              <a>{{jumlah_kelas}}</a> 
+            </ion-item>
+            <ion-item slot="start">
+              Jumlah Laboratorium: &nbsp;
+              <a>{{jumlah_lab}}</a> 
+            </ion-item>
+            <ion-item slot="start">
+              Jumlah Perpustakaan: &nbsp;
+              <a>{{jumlah_perpus}}</a> 
+            </ion-item>
+            
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+
+      
+    </ion-row>
+
+    <ion-row>
+      <ion-col size='12'>
+        <ion-card >
+          <ion-card-header color="primary">
+            Ekstrakurikuler
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item slot="start" *ngFor="let data of arr_eks">
+              {{data.nama}}
+            </ion-item>          
+            
+          </ion-card-content>
+        </ion-card>
+      </ion-col>      
+    </ion-row>
+
+    <ion-row>
+      <ion-col size='12'>
+        <ion-card >
+          <ion-card-header color="primary">
+            Rating
+          </ion-card-header>
+          <ion-card-content>          
+            <ion-item class="star">
+              <ion-icon name="star" style="font-size: 40px; color: yellow;"></ion-icon> &nbsp;
+              <ion-icon name="star-outline" style="font-size: 40px;"></ion-icon> &nbsp;
+              <ion-icon name="star-outline" style="font-size: 40px;"></ion-icon> &nbsp;
+              <ion-icon name="star-outline" style="font-size: 40px;"></ion-icon> &nbsp;
+              <ion-icon name="star-outline" style="font-size: 40px;"></ion-icon>
+            </ion-item>                 
+          </ion-card-content>
+        </ion-card>
+      </ion-col>      
+    </ion-row>
+
+  </ion-grid>
+
+</div>
+
+
+</ion-content>
+
+

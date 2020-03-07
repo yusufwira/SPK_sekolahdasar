@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     {
       title: 'List Elementary School',
       url: '/list',
-      icon: 'list-box'
+      icon: 'list-outline'
     },
     {
       title: 'Decission Suport System',
