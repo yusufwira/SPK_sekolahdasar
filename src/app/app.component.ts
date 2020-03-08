@@ -71,7 +71,7 @@ export class AppComponent implements OnInit {
       this.nama = localStorage['nama'];
       this.username = localStorage['username'];
       this.photo = localStorage['photo'];
-      this.img = "http://localhost/ta_backend/Auth/profile/"+this.username+"/"+this.photo
+      this.img = "http://localhost/ta_backend/Auth/profile/"+this.username+"/"+localStorage['photo']
     
      
      

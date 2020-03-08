@@ -12,12 +12,13 @@ export class SekolahAdminComponent implements OnInit {
   constructor(public alertController: AlertController, public sekolah:SekolahService) { }
 
   public dataSekolah= [];
-
+  public jumlah_sekolah="";
   ngOnInit() {
     this.sekolah.ListSekolah().subscribe((data) => {    
      this.dataSekolah = data;
-     
-     console.log(this.dataSekolah);            
+     this.jumlah_sekolah= data[0].jumlah
+     console.log(this.dataSekolah);     
+     //console.log(data[0].jumlah);       
     });
   }
 

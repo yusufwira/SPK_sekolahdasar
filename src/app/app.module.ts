@@ -8,6 +8,7 @@ import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer/ng
 import {  FileUploadOptions } from '@ionic-native/file-transfer/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
+import {Map,tileLayer,marker} from 'leaflet';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';

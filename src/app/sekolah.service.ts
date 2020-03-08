@@ -22,12 +22,32 @@ export class SekolahService {
     return this.http.get("http://localhost/ta_backend/sekolah/detailSekolah.php?id_sekolah="+this.id);
   }
 
+  Rating(idsekolah, iduser, rating){
+    return this.http.get("http://localhost/ta_backend/sekolah/rating.php?id_sekolah="+idsekolah+"&id_user="+iduser+"&rating="+rating);
+  }
+
+  Review(idsekolah, iduser, review){
+    return this.http.get("http://localhost/ta_backend/sekolah/review.php?id_sekolah="+idsekolah+"&id_user="+iduser+"&review="+review);
+  }
+
+  GetRating(){
+    return this.http.get("http://localhost/ta_backend/sekolah/get_rating.php?id_sekolah="+this.id);
+  }
+
+  GetReview(){
+    return this.http.get("http://localhost/ta_backend/sekolah/get_review.php?id_sekolah="+this.id);
+  }
+
   DetailEkstra():Observable<any>{
     return this.http.get("http://localhost/ta_backend/sekolah/detailSekolahEkstra.php?id_sekolah="+this.id);
   }
 
   ListSekolah():Observable<any>{
     return this.http.get("http://localhost/ta_backend/sekolah/list.php");
+  }
+
+  jumlahSekolah(){
+    return this.http.get("http://localhost/ta_backend/sekolah/jumlah.php?");
   }
 
   upload():Observable<any>{

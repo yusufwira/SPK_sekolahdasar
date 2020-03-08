@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     this.password = event.target.value;    
    }
 
-   login(){
+   login():void{
    	this.user.username = this.username;
    	this.user.password = this.password;
    	this.user.Login().subscribe((data) => {      
