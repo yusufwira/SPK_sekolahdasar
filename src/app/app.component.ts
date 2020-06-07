@@ -14,7 +14,7 @@ import { HeaderColor } from '@ionic-native/header-color/ngx';
 export class AppComponent implements OnInit {
   public appPages = [
     {
-      title: 'Home',
+      title: 'Halaman Utama',
       url: '/home',
       icon: 'home'
     },
@@ -24,17 +24,17 @@ export class AppComponent implements OnInit {
       icon: 'logo-buffer'
     },
     {
-      title: 'List Elementary School',
-      url: '/list',
+      title: 'Daftar Sekolah Dasar',
+      url: '/daftarsekolah',
       icon: 'list-outline'
     },
     {
-      title: 'Decission Suport System',
+      title: 'Sistem Penunjang Keputusan',
       url: '/list',
       icon: 'cog'
     },
     {
-      title: 'Logout',
+      title: 'Keluar',
       url: '/login',
       icon: 'log-out'
     }

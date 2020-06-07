@@ -27,10 +27,16 @@ import { SekolahViewComponent } from './sekolah-view/sekolah-view.component';
 import { SekolahCreateComponent } from './sekolah-create/sekolah-create.component';
 import { SekolahCreateAComponent } from './sekolah-create-a/sekolah-create-a.component';
 import { SekolahCreateBComponent } from './sekolah-create-b/sekolah-create-b.component';
+import { SekolahUpdateComponent } from './sekolah-update/sekolah-update.component';
 import { EktrakurikulerAdminComponent } from './ektrakurikuler-admin/ektrakurikuler-admin.component';
 import { EkstrakurikulerCreateComponent } from './ekstrakurikuler-create/ekstrakurikuler-create.component';
 import { KriteriaAdminComponent } from './kriteria-admin/kriteria-admin.component';
 import { KriteriaCreateComponent } from './kriteria-create/kriteria-create.component';
+import { ParentAdminComponent } from './parent-admin/parent-admin.component';
+import { ParentViewComponent } from './parent-view/parent-view.component';
+import { AdminsekolahAdminComponent } from './Adminsekolah-admin/Adminsekolah-admin.component';
+import { AdminsekolahViewComponent } from './Adminsekolah-view/Adminsekolah-view.component';
+import { DaftarsekolahComponent } from './Daftarsekolah/Daftarsekolah.component';
 
 
 
@@ -47,10 +53,16 @@ const appRoutes: Routes = [
   {path:'sekolah-create',component:SekolahCreateComponent},
   {path:'sekolah-create-a',component:SekolahCreateAComponent},
   {path:'sekolah-create-b/:id',component:SekolahCreateBComponent},
+  {path:'sekolah-update/:id',component:SekolahUpdateComponent},
   {path:'ekstrakurikuler-admin',component:EktrakurikulerAdminComponent},
   {path:'ekstrakurikuler-create',component:EkstrakurikulerCreateComponent},
   {path:'kriteria-admin',component:KriteriaAdminComponent},
   {path:'kriteria-create',component:KriteriaCreateComponent},
+  {path:'parent-admin',component:ParentAdminComponent},
+  {path:'parent-view/:id',component:ParentViewComponent},
+  {path:'admin-admin',component:AdminsekolahAdminComponent},
+  {path:'admin-view/:id',component:AdminsekolahViewComponent},
+  {path:'daftarsekolah',component:DaftarsekolahComponent},
 
   ];
 
@@ -72,6 +84,12 @@ const appRoutes: Routes = [
   EkstrakurikulerCreateComponent,
   KriteriaAdminComponent,
   KriteriaCreateComponent,
+  ParentAdminComponent,
+  ParentViewComponent,
+  AdminsekolahAdminComponent,
+  AdminsekolahViewComponent,
+  DaftarsekolahComponent,
+  SekolahUpdateComponent,
   
   
 

@@ -19,7 +19,7 @@ export class EktrakurikulerAdminComponent implements OnInit {
     this.eks.dataEkstra().subscribe((data) => {      
       this.datas = data;
       console.log(data)
-      this.ngOnInit();       
+      //this.ngOnInit();       
     });
   }
 

@@ -6,8 +6,8 @@
         <ion-menu-button color="light"></ion-menu-button> 
     </ion-buttons>
     <div class="header">
-      <h1 >{{jumlah_sekolah}}</h1>
-      <h1 >Sekolah Dasar</h1>
+      <h1 >1</h1>
+      <h1 >Orang Tua</h1>
     </div >
 
  
@@ -21,26 +21,30 @@
         </ion-card>
      
 
-    <ion-card color="light" class="card" *ngFor="let data of dataSekolah">
+    <ion-card color="light" class="card" *ngFor="let data of datas">
           <ion-row class="card-content">
             <ion-col size="4">
               <div>
-                <img src="http://localhost/ta_backend/sekolah/image/{{data.username}}/{{data.nama_foto}}.{{data.extention}}" alt=""> &nbsp;
+                <img src="http://localhost/ta_backend/Auth/profile/{{data.username}}/{{data.photo}}" alt=""> &nbsp;
               </div>
               </ion-col>
             <ion-col>
               <ion-row>
                 <div class="nama">
-                  {{data.nama_sekolah}}
-                </div>
+                  {{data.nama_user}}
+                </div> 
                 
               </ion-row>
+              <div>
+                {{data.kecamatan}}
+              </div>
+              
               <br>
               <ion-row class="card-action">  
                             
-                <ion-button color="success"  routerLink="/sekolah-view/{{data.idinfo_sekolah}}"><ion-icon name="eye"></ion-icon></ion-button>&nbsp; 
-                <ion-button color="warning" routerLink="/sekolah-update/{{data.idinfo_sekolah}}"><ion-icon name="create"></ion-icon></ion-button> &nbsp;
-                <ion-button color="danger" (click)="peringatan()"><ion-icon name="trash"></ion-icon></ion-button> &nbsp;
+                <ion-button color="success"  routerLink="/parent-view/{{data.id_user}}"><ion-icon name="eye"></ion-icon></ion-button>&nbsp; 
+                <ion-button color="warning"><ion-icon name="create"></ion-icon></ion-button> &nbsp;
+                <ion-button color="danger" (click)="peringatan(data.id_user)"><ion-icon name="trash"></ion-icon></ion-button> &nbsp;
               </ion-row>     
             </ion-col>
           </ion-row>                          

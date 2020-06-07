@@ -45,7 +45,7 @@ file: File;
     this.file = $event.target.files[0];
     this.user.file = this.file;
     this.user.username = this.username;
-    this.user.coba().subscribe((data) => {  
+    this.user.uploadfoto().subscribe((data) => {  
       this.img = data['link'];
       this.namaPhoto = data['namafile'];
       console.log(data);

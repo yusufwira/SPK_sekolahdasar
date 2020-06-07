@@ -46,7 +46,8 @@ export class SekolahViewComponent implements OnInit {
   address:string[];
 
   arr_komen:any;
-  ngOnInit():void {    
+  ratings=0.0;
+  ngOnInit(){    
     this.sekolah.id = this.route.snapshot.params['id'];
     this.sekolah.DetailSekolah().subscribe((data) => {    
       //console.log(data);
@@ -77,7 +78,13 @@ export class SekolahViewComponent implements OnInit {
       this.username = data['username'];
       this.arr_foto = data['foto'];
       this.loadmap(data['koordinat_X'],data['koordinat_Y'],this.nama_sekolah);
-      //console.log(this.arr_foto);            
+      //console.log(this.arr_foto);  
+      this.sekolah.GetRating(this.id_sekolah).subscribe((data) => { 
+        var hasil = +data['hasil'];
+        var jumlah = +data['jumlah'];      
+        this.ratings = hasil/jumlah;
+        console.log(this.ratings);                      
+      });          
     });
 
     this.sekolah.DetailEkstra().subscribe((data) => {        
@@ -85,7 +92,7 @@ export class SekolahViewComponent implements OnInit {
     });
 
     this.getReview();
-    this.getRating();
+   
     
   }
 
@@ -96,15 +103,8 @@ export class SekolahViewComponent implements OnInit {
     });
   }
 
-   ratings=0.0;
-  getRating(){
-    this.sekolah.GetRating().subscribe((data) => { 
-      var hasil = +data['hasil'];
-      var jumlah = +data['jumlah'];      
-      this.ratings = hasil/jumlah;
-      console.log(this.ratings);                      
-    });
-  }
+   
+  
 
   loadmap(x,y,nama){
      this.map = new Map("mapId").setView([x,y], 13);

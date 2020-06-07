@@ -30,8 +30,8 @@ export class SekolahService {
     return this.http.get("http://localhost/ta_backend/sekolah/review.php?id_sekolah="+idsekolah+"&id_user="+iduser+"&review="+review);
   }
 
-  GetRating(){
-    return this.http.get("http://localhost/ta_backend/sekolah/get_rating.php?id_sekolah="+this.id);
+  GetRating(ids){
+    return this.http.get("http://localhost/ta_backend/sekolah/get_rating.php?id_sekolah="+ids);
   }
 
   GetReview(){
