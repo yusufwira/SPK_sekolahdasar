@@ -11,13 +11,13 @@ export class DaftarsekolahComponent implements OnInit {
 
   constructor(public alertController: AlertController, public sekolah:SekolahService) { }
 
-  datas = "";
+  public datas:any;
   ngOnInit() {
     this.sekolah.ListSekolah().subscribe((data) => {    
-      this.datas = data;
-      console.log(data);     
-      //console.log(data[0].jumlah);       
+      this.datas = data;   
+      console.log(data);
      });
+     
   }
 
 }

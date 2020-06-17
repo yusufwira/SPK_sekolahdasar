@@ -10,23 +10,23 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card *ngFor="let data of datas" routerLink="/sekolah-view/{{data.idinfo_sekolah}}">
     <ion-card-header color="tertiary">
-      <b style="font-size: 20px;">SD Al-Azhar Kelapa Gading</b>
+      <b style="font-size: 20px;">{{data.nama_sekolah}}</b>
     </ion-card-header>
     <ion-card-content>
-      <img src="http://localhost/ta_backend/sekolah/image/wira/download (3).jpg" alt="">         
+      <img src="http://localhost/ta_backend/sekolah/image/{{data.username}}/{{data.nama_foto}}.{{data.extention}}" alt="">        
     </ion-card-content>
     <ion-card-content>
       <div class="detail">
-      <ion-icon name="star" style="color: yellow;"></ion-icon>
+      <!-- <ion-icon name="star" style="color: yellow;"></ion-icon>
       3.4<br>
       <ion-icon name="thumbs-up"  style="color: blue;"></ion-icon>
-      3 Review<br>
+      3 Review<br> -->
       <ion-icon name="location"  style="color: red;"></ion-icon>
-      Jl. Mulyosai utara gang 7 no 1 <br>
+      {{data.alamat_sekolah}}<br>
       <ion-icon name="call"  style="color: green;"></ion-icon>
-      0989324354
+      {{data.notelp_sekolah}}
       </div>
     </ion-card-content>
   </ion-card>

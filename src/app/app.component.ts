@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log("this.username+this.nama")
+    
   }
 
  
@@ -85,7 +85,5 @@ export class AppComponent implements OnInit {
   menu1Active() {
     this.activeMenu = 'menu1';   
     this.menu.enable(false, 'menu2');
-    console.log("fak")
-    console.log(this.img)
   }
 }
