@@ -15,7 +15,7 @@ export class SekolahCreateBComponent implements OnInit {
   constructor( public sekolah:SekolahService,private route: ActivatedRoute,public ekstra:EkstrakurikulerService,public alertController: AlertController, private router: Router,public menu: MenuController) { }
 
   public dataEkstra:any;
-  arrEks=[];
+  
   idSekolah="";
   ngOnInit() {
     this.idSekolah =this.route.snapshot.params['id'];
@@ -27,10 +27,10 @@ export class SekolahCreateBComponent implements OnInit {
     
   }
 
-  pilih="";
-
-  //const removeItem = (items, i) =>items.slice(0, i-1).concat(items.slice(i, items.length))
   
+  //const removeItem = (items, i) =>items.slice(0, i-1).concat(items.slice(i, items.length))
+  pilih="";
+  arrEks=[];
   getValue(value) {    
     this.pilih = value;
     var sama = false;

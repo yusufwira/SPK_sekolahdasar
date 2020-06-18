@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Sistem Penunjang Keputusan',
-      url: '/list',
+      url: '/spk',
       icon: 'cog'
     },
     {

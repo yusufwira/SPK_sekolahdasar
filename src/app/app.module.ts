@@ -37,6 +37,7 @@ import { ParentViewComponent } from './parent-view/parent-view.component';
 import { AdminsekolahAdminComponent } from './Adminsekolah-admin/Adminsekolah-admin.component';
 import { AdminsekolahViewComponent } from './Adminsekolah-view/Adminsekolah-view.component';
 import { DaftarsekolahComponent } from './Daftarsekolah/Daftarsekolah.component';
+import { SpkComponent } from './Spk/Spk.component';
 
 
 
@@ -63,6 +64,7 @@ const appRoutes: Routes = [
   {path:'admin-admin',component:AdminsekolahAdminComponent},
   {path:'admin-view/:id',component:AdminsekolahViewComponent},
   {path:'daftarsekolah',component:DaftarsekolahComponent},
+  {path:'spk',component:SpkComponent},
 
   ];
 
@@ -90,6 +92,7 @@ const appRoutes: Routes = [
   AdminsekolahViewComponent,
   DaftarsekolahComponent,
   SekolahUpdateComponent,
+  SpkComponent,
   
   
 

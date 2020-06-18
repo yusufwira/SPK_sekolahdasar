@@ -9,7 +9,7 @@ export class RegisterComponent implements OnInit {
 
   constructor() { }
 
-  username:string;
+  
   password="";
   email="";
   check=false;
@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
 
 
   }
-
+  username:string;
   inputusername(event:any) {    
     this.username = event.target.value;
     this.checker(this.username,this.password,this.email);
