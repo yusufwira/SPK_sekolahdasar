@@ -3,7 +3,6 @@ import { KriteriaService } from '../kriteria.service';
 import { AlertController } from '@ionic/angular';
 import {Router} from "@angular/router";
 
-
 @Component({
   selector: 'app-kriteria-create',
   templateUrl: './kriteria-create.component.html',

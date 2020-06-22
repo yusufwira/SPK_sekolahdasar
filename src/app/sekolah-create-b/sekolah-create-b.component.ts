@@ -52,9 +52,23 @@ export class SekolahCreateBComponent implements OnInit {
     this.sekolah.ekstra = this.arrEks;
     this.sekolah.sekolah = this.idSekolah;
     this.sekolah.AddEkstra().subscribe((data) => {      
-      console.log(data);       
+      console.log(data); 
+      this.peringatan('Sukses', 'Data berhasil disimpan');      
     });;
 
+  }
+
+  peringatan(headers, data){
+    const alert =  this.alertController.create({
+     header: headers,
+     message: data,
+     buttons: [{
+      text: 'Okay',
+      handler: () => {
+        //this.router.navigate(['/sekolah-admin'])
+      }
+     }]
+   }).then(alert=> alert.present());;
   }
 
 }

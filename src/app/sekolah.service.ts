@@ -46,10 +46,19 @@ export class SekolahService {
     return this.http.get("http://localhost/ta_backend/sekolah/list.php");
   }
 
+  Search(key:string):Observable<any>{
+    return this.http.get("http://localhost/ta_backend/sekolah/search.php?key="+key);
+  }
+
   jumlahSekolah(){
     return this.http.get("http://localhost/ta_backend/sekolah/jumlah.php?");
   }
 
+  Delete(id:string):Observable<any>{
+    return this.http.get("http://localhost/ta_backend/sekolah/delete.php?idsekolah="+id);
+  }
+
+  
   upload():Observable<any>{
     let body = new HttpParams();
     let Data:FormData = new FormData();

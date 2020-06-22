@@ -27,4 +27,23 @@ export class KriteriaService {
   jumlahKriteria(){
     return this.http.get("http://localhost/ta_backend/kriteria/jumlah.php?");
   }
+
+
+  tampil_bobot(){
+    return this.http.get("http://localhost/ta_backend/kriteria/tampil_bobot.php");
+  }
+
+  search_bobot(key:string){
+    return this.http.get("http://localhost/ta_backend/kriteria/search_bobot.php?key="+key);
+  }
+
+  update_bobot(bobot:string, crit1:string, crit2:string):Observable<any>{
+    let body = new HttpParams();
+    let Data:FormData = new FormData();
+    Data.append('bobot', bobot); 
+    Data.append('crit1',crit1 ); 
+    Data.append('crit2',crit2 ); 
+    return this.http.post<any>
+    ("http://localhost/ta_backend/kriteria/update_bobot.php", Data);
+  }
 }

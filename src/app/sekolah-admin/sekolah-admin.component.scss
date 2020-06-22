@@ -4,7 +4,7 @@
     padding: 10px;
       border-bottom-left-radius: 30px;
       border-bottom-right-radius: 30px;
-    background:  linear-gradient(90deg, rgba(4,9,255,1) 0%, rgba(71,90,255,1) 50%, rgba(0,241,255,1) 100%);
+      background:  linear-gradient(90deg, rgba(176,0,219,1) 0%, rgba(106,0,255,1) 47%, rgba(179,0,255,1) 100%);
 }
 
 .header{
@@ -13,22 +13,25 @@
 }
 
 .card{
-  height: 150px;
-  border-radius: 10px;
+  margin-top: 5%;
+  height: 110px;
+  border-radius: 20px;
   
 }
 
 .card-content{
+  
   text-align: left;
   img{
     height: 100px;
+    border-radius: 20px;
   }
   ion-icon{
     font-size: 20px;
   }
 
   .nama{
-    font-size: 25px;
+    font-size: 20px;
   }
   
 }
@@ -37,8 +40,32 @@ ion-fab-button{
   margin-bottom:100px;
 }
 
-.fab{
-  margin-top: 90% !important;
-  margin-bottom: 5px !important;
-  bottom: 5px;
+.fab-list{
+  border-radius: 15px;
+  width: 130px;
+  height: 35px;
+
+  ion-icon{
+      font-size: 30px;
+  }
+  p{
+      text-align: left;
+      margin-top: -5%;
+  }
+  
+}
+
+.fab-list-2{
+  border-radius: 15px;
+  width: 130px;
+  height: 35px;
+
+  ion-icon{
+      font-size: 30px;
+  }
+  p{
+      text-align: left;
+      margin-top: 8%;
+  }
+  
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { KriteriaService } from '../kriteria.service';
 import { AlertController } from '@ionic/angular';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -19,7 +20,7 @@ export class KriteriaAdminComponent implements OnInit {
     
     this.kr.dataKriteria().subscribe((data) => {      
       this.datas = data;
-      this.ngOnInit();       
+     
     });
   }
 
