@@ -14,6 +14,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { HeaderColor } from '@ionic-native/header-color/ngx';
+import { Events } from '@ionic/angular';
 
 
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { SekolahCreateComponent } from './sekolah-create/sekolah-create.componen
 import { SekolahCreateAComponent } from './sekolah-create-a/sekolah-create-a.component';
 import { SekolahCreateBComponent } from './sekolah-create-b/sekolah-create-b.component';
 import { SekolahUpdateComponent } from './sekolah-update/sekolah-update.component';
+import { SekolahBobotComponent } from './sekolah-bobot/sekolah-bobot.component';
 import { EktrakurikulerAdminComponent } from './ektrakurikuler-admin/ektrakurikuler-admin.component';
 import { EkstrakurikulerCreateComponent } from './ekstrakurikuler-create/ekstrakurikuler-create.component';
 import { KriteriaAdminComponent } from './kriteria-admin/kriteria-admin.component';
@@ -45,7 +47,6 @@ import { KriteriaBobotComponent } from './kriteria-bobot/kriteria-bobot.componen
 
 
 const appRoutes: Routes = [
-  {path:'',component:DashboardComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'register_info/:username/:password/:email',component:Registrasi2Component},
@@ -67,6 +68,7 @@ const appRoutes: Routes = [
   {path:'daftarsekolah',component:DaftarsekolahComponent},
   {path:'spk',component:SpkComponent},
   {path:'kriteria-bobot',component:KriteriaBobotComponent},
+  {path:'sekolah-bobot',component:SekolahBobotComponent},
 
   ];
 
@@ -96,6 +98,7 @@ const appRoutes: Routes = [
   SekolahUpdateComponent,
   SpkComponent,
   KriteriaBobotComponent,
+  SekolahBobotComponent
   
   
 
@@ -118,7 +121,8 @@ const appRoutes: Routes = [
     //FileUploadOptions,
     //FileTransferObject,
     File,
-    Camera
+    Camera,
+    Events
   ],
   bootstrap: [AppComponent]
 })

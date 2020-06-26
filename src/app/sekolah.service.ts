@@ -46,6 +46,10 @@ export class SekolahService {
     return this.http.get("http://localhost/ta_backend/sekolah/list.php");
   }
 
+  ListSekolahAdmin(id):Observable<any>{
+    return this.http.get("http://localhost/ta_backend/sekolah/list_admin_sekolah.php?iduser="+id);
+  }
+
   Search(key:string):Observable<any>{
     return this.http.get("http://localhost/ta_backend/sekolah/search.php?key="+key);
   }

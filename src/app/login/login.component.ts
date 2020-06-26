@@ -3,6 +3,8 @@ import { UserService } from '../user.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
+import { Events } from '@ionic/angular';
+
 
 
 @Component({
@@ -14,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   activeMenu: string;
 
-  constructor(public user:UserService,public alertController: AlertController, private router: Router,public menu: MenuController) { 
+  constructor(public user:UserService,public alertController: AlertController, private router: Router,public menu: MenuController, public events: Events) { 
    this.menu1Active();
  }
 
@@ -49,11 +51,14 @@ export class LoginComponent implements OnInit {
         	this.peringatan();
         }
         else{
+          
         	localStorage['username'] = this.username;
           console.log(data[0].nama_user)
           localStorage['iduser'] = data[0].id_users;
           localStorage['nama'] = data[0].nama_user;
           localStorage['photo'] = data[0].photo;
+          localStorage['hak_akses'] = data[0].hak_akses;
+          this.events.publish('user:created', this.username,data[0].nama_user,data[0].photo,data[0].hak_akses);
         	this.router.navigate(['/home'])
         }
     },(error)=>{

@@ -26,7 +26,6 @@ export class HomePage {
 
 
   ngOnInit():void {
-  	
   	if(localStorage['username'] == 0){  
   		this.router.navigate(['/login'])
   	}

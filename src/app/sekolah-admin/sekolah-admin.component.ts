@@ -13,13 +13,35 @@ export class SekolahAdminComponent implements OnInit {
 
   public dataSekolah= [];
   public jumlah_sekolah="";
+  public cek = false;
+  public hak = "";
   ngOnInit() {
-    this.sekolah.ListSekolah().subscribe((data) => {    
-     this.dataSekolah = data;
-     this.jumlah_sekolah= data[0].jumlah
-     console.log(this.dataSekolah);     
-     //console.log(data[0].jumlah);       
-    });
+    // console.log(localStorage['hak_akses'])
+    // console.log(localStorage['iduser'])
+    this.hak = localStorage['hak_akses'];
+    if(localStorage['hak_akses'] == 'admin_sekolah'){
+      this.sekolah.ListSekolahAdmin(localStorage['iduser']).subscribe((data) => {    
+        if(data == 'belum ada'){
+          this.cek = true;
+        }
+        else{
+          this.dataSekolah = data;
+          this.jumlah_sekolah= data[0].jumlah
+          console.log(this.dataSekolah);  
+        }
+                 
+       });
+    }    
+    else{
+      this.sekolah.ListSekolah().subscribe((data) => {    
+        this.dataSekolah = data;
+        this.jumlah_sekolah= data[0].jumlah
+        this.cek = true;
+        console.log(this.dataSekolah);           
+       });
+    }
+
+    
   }
 
   search ="";
