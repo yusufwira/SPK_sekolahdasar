@@ -30,6 +30,8 @@ import { SekolahCreateAComponent } from './sekolah-create-a/sekolah-create-a.com
 import { SekolahCreateBComponent } from './sekolah-create-b/sekolah-create-b.component';
 import { SekolahUpdateComponent } from './sekolah-update/sekolah-update.component';
 import { SekolahUpdateChoiceComponent } from './sekolah-update-choice/sekolah-update-choice.component';
+import { SekolahUpdateGambarComponent } from './sekolah-update-gambar/sekolah-update-gambar.component';
+import { SekolahUpdateEkstraComponent } from './sekolah-update-ekstra/sekolah-update-ekstra.component';
 import { SekolahBobotComponent } from './sekolah-bobot/sekolah-bobot.component';
 import { EktrakurikulerAdminComponent } from './ektrakurikuler-admin/ektrakurikuler-admin.component';
 import { EkstrakurikulerCreateComponent } from './ekstrakurikuler-create/ekstrakurikuler-create.component';
@@ -59,6 +61,8 @@ const appRoutes: Routes = [
   {path:'sekolah-create-b/:id',component:SekolahCreateBComponent},
   {path:'sekolah-update/:id',component:SekolahUpdateComponent},
   {path:'sekolah-update-choice/:id',component:SekolahUpdateChoiceComponent},
+  {path:'sekolah-update-gambar/:id',component:SekolahUpdateGambarComponent},
+  {path:'sekolah-update-ekstra/:id',component:SekolahUpdateEkstraComponent},
   {path:'ekstrakurikuler-admin',component:EktrakurikulerAdminComponent},
   {path:'ekstrakurikuler-create',component:EkstrakurikulerCreateComponent},
   {path:'kriteria-admin',component:KriteriaAdminComponent},
@@ -71,6 +75,8 @@ const appRoutes: Routes = [
   {path:'spk',component:SpkComponent},
   {path:'kriteria-bobot',component:KriteriaBobotComponent},
   {path:'sekolah-bobot',component:SekolahBobotComponent},
+  
+  
 
   ];
 
@@ -101,7 +107,9 @@ const appRoutes: Routes = [
   SekolahUpdateChoiceComponent,
   SpkComponent,
   KriteriaBobotComponent,
-  SekolahBobotComponent
+  SekolahBobotComponent,
+  SekolahUpdateGambarComponent,
+  SekolahUpdateEkstraComponent
   
   
 

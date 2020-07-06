@@ -70,6 +70,16 @@ export class SekolahService {
     return this.http.get("http://localhost/ta_backend/sekolah/informasi_sekolah.php?id_sekolah="+id);
   }
 
+  update_InformasiSekolah(id:string, kolom:string, value:unknown):Observable<any>{
+    let body = new HttpParams();
+    let Data:FormData = new FormData();
+    Data.append('id', id); 
+    Data.append('kolom',kolom ); 
+    Data.append('value',String(value)); 
+    return this.http.post<any>
+    ("http://localhost/ta_backend/sekolah/informasi_sekolah-update.php", Data);
+  }
+
   update_bobot(bobot:string, crit:string, sekolah_1:string, sekolah_2:string):Observable<any>{
     let body = new HttpParams();
     let Data:FormData = new FormData();
