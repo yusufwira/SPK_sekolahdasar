@@ -51,8 +51,16 @@
             </ion-col>
             <ion-col>
               <h3>Pilih Sekolah sebagai pertimbangan </h3>
+              
             </ion-col>
-          </ion-row>           
+          </ion-row>  
+          <ion-row class="pilihan">
+            <li>
+              <ul *ngFor ="let data of arr_sekolah; let i=index">
+                <h6>{{i+1}}. {{data}}</h6>
+              </ul>
+            </li>
+          </ion-row>         
         </ion-card>
         
         <ion-card  class="cari">
@@ -98,8 +106,95 @@
               </ion-row>
             </ion-card>
           </div>
+          <ion-card class="btn-next" color="tertiary" (click)="Proses(); slides.slideNext() ">
+            <h3>Proses</h3>
+          </ion-card>
       
       </div>
+      </ion-slide>
+      <ion-slide>
+        <div padding class="hasil">
+        <h2>Kriteria</h2>
+        <ion-card >
+          <ion-card-header color="tertiary">
+            Vector Eigen 
+          </ion-card-header>
+          <ion-card-content >
+              <ion-row *ngFor ="let data of ve_kriteria ;let i=index">
+                <ion-col>
+                  {{arr_kriteria[i]}}
+                </ion-col>
+                <ion-col class="right">
+                  {{data}}
+                </ion-col>
+              </ion-row>
+          </ion-card-content>
+          <ion-card-content  class="cr">
+            <ion-row>
+              <ion-col >
+                Cosistancy Ratio
+              </ion-col>  
+              <ion-col class="persen">
+                {{cr_kriteria}}%
+              </ion-col>     
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+
+        <h2>Alternatif</h2>
+        <ion-card *ngFor="let item of alternatif | keyvalue">
+          <ion-card-header color="tertiary">
+            {{item.key}}
+          </ion-card-header>
+          <div *ngFor ="let data of item.value | keyvalue">
+              <ion-card-content *ngIf ="data.key=='0'">
+                  <ion-row *ngFor ="let result of data.value;let i=index">
+                    <ion-col>
+                      {{arr_sekolah[i]}}
+                    </ion-col>
+                    <ion-col class="right">
+                      {{result}}
+                    </ion-col>
+                  </ion-row>
+              </ion-card-content>
+              <ion-card-content *ngIf ="data.key=='1'"  class="cr">           
+                  <ion-row>
+                    <ion-col >
+                      Cosistancy Ratio
+                    </ion-col>  
+                    <ion-col class="persen">
+                      {{data.value}}%
+                    </ion-col>     
+                  </ion-row>              
+              </ion-card-content>
+          </div>
+        
+        </ion-card>
+        <h2>Hasil Rekomendasi</h2>
+        <ion-card>
+          <ion-card-header  color="tertiary">
+            Rekomendasi Sekolah
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row *ngFor ="let data of hasil_jadi ;let i=index">
+              <ion-col size =1>
+                {{i+1}}
+              </ion-col>
+              <div *ngFor ="let item of data | keyvalue">
+                <ion-col *ngIf ="item.key=='nama'">
+                  {{item.value}}
+                </ion-col>
+              </div>
+              <ion-col *ngIf ="i == 0"  class="right">
+                <ion-icon name="thumbs-up" color="success"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </div>
+  
+         
+                                   
       </ion-slide>
     </ion-slides>
   </div>

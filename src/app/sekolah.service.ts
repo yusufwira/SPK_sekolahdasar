@@ -62,6 +62,25 @@ export class SekolahService {
     return this.http.get("http://localhost/ta_backend/sekolah/delete.php?idsekolah="+id);
   }
 
+  GetSekolahBobot():Observable<any>{
+    return this.http.get("http://localhost/ta_backend/sekolah/get_sekolah_bobot.php?");
+  }
+
+  GetInformasiSekolah(id:string):Observable<any>{
+    return this.http.get("http://localhost/ta_backend/sekolah/informasi_sekolah.php?id_sekolah="+id);
+  }
+
+  update_bobot(bobot:string, crit:string, sekolah_1:string, sekolah_2:string):Observable<any>{
+    let body = new HttpParams();
+    let Data:FormData = new FormData();
+    Data.append('bobot', bobot); 
+    Data.append('crit',crit ); 
+    Data.append('sekolah_1',sekolah_1 ); 
+    Data.append('sekolah_2',sekolah_2 );
+    return this.http.post<any>
+    ("http://localhost/ta_backend/sekolah/update_bobot.php", Data);
+  }
+
   
   upload():Observable<any>{
     let body = new HttpParams();

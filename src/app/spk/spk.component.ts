@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { KriteriaService } from '../kriteria.service';
 import { SekolahService } from '../sekolah.service';
+import { SpkService } from '../spk.service';
 
 @Component({
   selector: 'app-spk',
@@ -9,7 +10,7 @@ import { SekolahService } from '../sekolah.service';
 })
 export class SpkComponent implements OnInit {
 
-  constructor(public kriteria:KriteriaService, public sekolah:SekolahService) { }
+  constructor(public kriteria:KriteriaService, public sekolah:SekolahService,public spk:SpkService) { }
   
   prog_bar:String="0.2";
   public datas_kriteria:Object;
@@ -50,7 +51,7 @@ export class SpkComponent implements OnInit {
     else{
       this.arr_kriteria.push(this.pilih);
     }
-    console.log(this.arr_kriteria);
+    
   }
 
 
@@ -68,6 +69,25 @@ export class SpkComponent implements OnInit {
     else{
       this.arr_sekolah.push(this.pilih);
     }
+    
+  }
+
+  ve_kriteria = [];
+  cr_kriteria = "";
+  alternatif:object;
+  hasil_jadi = [];
+  Proses(){
+    console.log(this.arr_kriteria);
     console.log(this.arr_sekolah);
+    this.spk.proses_ahp(this.arr_kriteria,this.arr_sekolah).subscribe((data) => {    
+      console.log(data);
+      this.ve_kriteria = data.VE_CRIT;
+      this.cr_kriteria = data.CR_CRIT;
+      this.alternatif = data.VE_ALT;
+      this.hasil_jadi = data.Hasil_jadi;
+      console.log(this.hasil_jadi);
+      this.progres("1.0");
+     });
+    
   }
 }

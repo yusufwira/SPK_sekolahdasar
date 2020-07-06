@@ -9,16 +9,19 @@ import { HttpParams } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SpkService {
-
+  private header = new HttpHeaders({ 'content-type': 'application/json' });
   constructor(private http: HttpClient) { }
-  arr_kriteria:any;
-  arr_sekolah:any;
-  proses_ahp():Observable<any>{
+ 
+  proses_ahp(arr_kriteria,arr_sekolah ):Observable<any>{
     let body = new HttpParams();
     let testData:FormData = new FormData();
-    testData.append('nama',this.arr_kriteria); 
-    testData.append('sekolah', this.arr_sekolah); 
+    testData.append('nama',JSON.stringify(arr_kriteria)); 
+    testData.append('sekolah', JSON.stringify(arr_sekolah)); 
     return this.http.post<any>
     ("http://localhost/spk_backend/proses_hasil.php", testData);
+  }
+
+  Coba(coba):Observable<any> {
+    return this.http.post("http://localhost/spk_backend/coba_hasil.php", coba, { headers: this.header });
   }
 }

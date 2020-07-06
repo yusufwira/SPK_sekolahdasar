@@ -80,10 +80,16 @@ export class SekolahViewComponent implements OnInit {
       this.loadmap(data['koordinat_X'],data['koordinat_Y'],this.nama_sekolah);
       //console.log(this.arr_foto);  
       this.sekolah.GetRating(this.id_sekolah).subscribe((data) => { 
-        var hasil = +data['hasil'];
-        var jumlah = +data['jumlah'];      
-        this.ratings = hasil/jumlah;
-        console.log(this.ratings);                      
+        if(data != "tidak ada"){
+          var hasil = +data['hasil'];
+          var jumlah = +data['jumlah'];      
+          this.ratings = hasil/jumlah;
+          console.log(this.ratings);    
+        }
+        else{
+          this.ratings = 0.0;
+        }
+                          
       });          
     });
 
@@ -97,9 +103,12 @@ export class SekolahViewComponent implements OnInit {
   }
 
   getReview(){
-    this.sekolah.GetReview().subscribe((data) => {        
-      this.arr_komen = data;
-      console.log(this.arr_komen);                      
+    this.sekolah.GetReview().subscribe((data) => {   
+      if(data != "tidak ada"){
+        this.arr_komen = data;
+        console.log(this.arr_komen); 
+      }   
+                           
     });
   }
 
@@ -116,8 +125,6 @@ export class SekolahViewComponent implements OnInit {
 
   locatePosition(x,y, nama){
     this.map.locate({setView:true}).on("locationfound", (e: any)=> {
-      
-
        this.newMarker = marker([x,y], {autoPan: 
         true}).addTo(this.map);
         this.newMarker.bindPopup(nama).openPopup();

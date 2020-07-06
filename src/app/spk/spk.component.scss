@@ -58,6 +58,7 @@
 
 .btn-next{
     border-radius:30px;
+   
 }
 
 .cari{
@@ -96,4 +97,38 @@
     p{
         margin-top: 5%;
     }
+}
+
+.hasil{
+    margin-top: 15%;
+    width: 110%;
+    font-size: 20px;
+    ion-card-header{
+        font-size: 20px;
+    }
+    ion-card-content{
+        text-align: left;
+        color: black;
+        font-size: 18px;
+    }
+    .cr{
+        font-size: 18px;
+        background-color: #7044ff;
+        color: white;
+        .persen{
+            font-size: 20px;
+            text-align: right;
+        }
+    }
+
+    .right{
+        font-size: 20px;
+        text-align: right;
+    }
+
+   
+}
+
+.pilihan{
+    text-align: left;
 }

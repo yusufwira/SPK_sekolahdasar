@@ -26,8 +26,8 @@ export class KriteriaAdminComponent implements OnInit {
 
 
   delete(id){
-    this.kr.deleteKriteria(id).subscribe((data) => {            
-      this.ngOnInit();       
+    this.kr.deleteKriteria(id).subscribe((data) => {  
+      console.log(data)                
     });
   }
 

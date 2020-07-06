@@ -15,9 +15,7 @@ export class SekolahAdminComponent implements OnInit {
   public jumlah_sekolah="";
   public cek = false;
   public hak = "";
-  ngOnInit() {
-    // console.log(localStorage['hak_akses'])
-    // console.log(localStorage['iduser'])
+  ngOnInit() {    
     this.hak = localStorage['hak_akses'];
     if(localStorage['hak_akses'] == 'admin_sekolah'){
       this.sekolah.ListSekolahAdmin(localStorage['iduser']).subscribe((data) => {    
