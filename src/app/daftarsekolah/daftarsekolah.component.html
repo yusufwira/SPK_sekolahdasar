@@ -10,7 +10,32 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let data of datas" routerLink="/sekolah-view/{{data.idinfo_sekolah}}">
+  <ion-card padding class="filter" color="tertiary">
+    <h2>Filter Sekolah</h2>
+    
+        <ion-select value="nama_sekolah">
+          <ion-select-option value="nama_sekolah">Nama Sekolah</ion-select-option>
+          <ion-select-option value="alamat_sekolah">Alamat Sekolah</ion-select-option>
+          <ion-select-option value="kecamatan">Kecamatan</ion-select-option>
+          <ion-select-option value="agama">Agama</ion-select-option>
+          <ion-select-option value="akreditasi">Akreditasi</ion-select-option>
+        </ion-select>
+        <ion-row>
+          <ion-col>
+            <ion-input type="text" placeholder="Masukan kata kunci"></ion-input>
+          </ion-col>
+          <ion-col size="2">
+            <ion-card class="button">
+              <ion-icon name="search"></ion-icon>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+
+       
+
+     
+  </ion-card>
+  <ion-card class="list" *ngFor="let data of datas" routerLink="/sekolah-view/{{data.idinfo_sekolah}}">
     <ion-card-header color="tertiary">
       <b style="font-size: 20px;">{{data.nama_sekolah}}</b>
     </ion-card-header>
