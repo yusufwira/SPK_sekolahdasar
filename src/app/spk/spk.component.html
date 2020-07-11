@@ -114,6 +114,35 @@
       </ion-slide>
       <ion-slide>
         <div padding class="hasil">
+        <h2>Hasil Rekomendasi</h2>
+        <ion-card>
+          <ion-card-header  color="tertiary">
+            Rekomendasi Sekolah
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row *ngFor ="let data of hasil_jadi ;let i=index">
+              <ion-col size =1>
+                {{i+1}}
+              </ion-col>
+              <div *ngFor ="let item of data | keyvalue">
+                <ion-col *ngIf ="item.key=='nama'">
+                  {{item.value}}
+                </ion-col>
+              </div>
+              <ion-col *ngIf ="i == 0"  class="right">
+                <ion-icon name="thumbs-up" color="success"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+        <ion-card class="btn-next" color="tertiary" (click)="slides.slideNext() ">
+          <h3>Lihat Perhitungan</h3>
+        </ion-card>
+      </div>
+        
+      </ion-slide>
+      <ion-slide>
+        <div padding class="hasil">
         <h2>Kriteria</h2>
         <ion-card >
           <ion-card-header color="tertiary">
@@ -170,33 +199,12 @@
           </div>
         
         </ion-card>
-        <h2>Hasil Rekomendasi</h2>
-        <ion-card>
-          <ion-card-header  color="tertiary">
-            Rekomendasi Sekolah
-          </ion-card-header>
-          <ion-card-content>
-            <ion-row *ngFor ="let data of hasil_jadi ;let i=index">
-              <ion-col size =1>
-                {{i+1}}
-              </ion-col>
-              <div *ngFor ="let item of data | keyvalue">
-                <ion-col *ngIf ="item.key=='nama'">
-                  {{item.value}}
-                </ion-col>
-              </div>
-              <ion-col *ngIf ="i == 0"  class="right">
-                <ion-icon name="thumbs-up" color="success"></ion-icon>
-              </ion-col>
-            </ion-row>
-          </ion-card-content>
-        </ion-card>
-      </div>
-  
-         
-                                   
+       
+      </div>                                              
       </ion-slide>
+      
     </ion-slides>
+
   </div>
 
     

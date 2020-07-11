@@ -4,6 +4,7 @@ import { AlertController } from '@ionic/angular';
 import { Router,ActivatedRoute } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { SekolahService } from '../sekolah.service';
+import { Events } from '@ionic/angular';
 
 @Component({
   selector: 'app-sekolah-create-b',
@@ -12,18 +13,23 @@ import { SekolahService } from '../sekolah.service';
 })
 export class SekolahCreateBComponent implements OnInit {
 
-  constructor( public sekolah:SekolahService,private route: ActivatedRoute,public ekstra:EkstrakurikulerService,public alertController: AlertController, private router: Router,public menu: MenuController) { }
+  constructor( public sekolah:SekolahService,private route: ActivatedRoute,public ekstra:EkstrakurikulerService,public alertController: AlertController, private router: Router,public menu: MenuController, public events: Events) { }
 
   public dataEkstra:any;
   
-  idSekolah="";
+  public idSekolah="";
   ngOnInit() {
     this.idSekolah =this.route.snapshot.params['id'];
     console.log(this.idSekolah);
     this.ekstra.dataEkstra().subscribe((data) => {      
           this.dataEkstra = data;   
-          //console.log(data);   
-     });;
+     });
+
+     this.events.subscribe('data', (data) => {
+      this.ekstra.dataEkstra().subscribe((data) => {      
+        this.dataEkstra = data;   
+      });
+    });
     
   }
 
@@ -65,7 +71,7 @@ export class SekolahCreateBComponent implements OnInit {
      buttons: [{
       text: 'Okay',
       handler: () => {
-        //this.router.navigate(['/sekolah-admin'])
+        this.router.navigate(['/sekolah-admin'])
       }
      }]
    }).then(alert=> alert.present());;

@@ -106,7 +106,7 @@
             </ion-item>
             <ion-item slot="start">
               AC : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <ion-icon *ngIf="ac == 'ya'" name="checkmark-circle-outline" color="success"></ion-icon>
+              <ion-icon *ngIf="ac == 'semua' || ac == 'sebagian'" name="checkmark-circle-outline" color="success"></ion-icon>
               <ion-icon *ngIf="ac == 'tidak'" name="close-circle-outline" color="danger"></ion-icon>
             </ion-item>
             <ion-item slot="start">
@@ -119,12 +119,21 @@
               <a>{{daya_listrik}} W</a> 
             </ion-item>
             <ion-item slot="start">
-              Luas Tanah: &nbsp;
+              Besar Bangunan: &nbsp;
+              <a>{{luas_bangunan}} m<sup>2</sup></a> 
+            </ion-item>
+            <ion-item slot="start">
+              Luas Tanah Terbuka: &nbsp;
               <a>{{luas_tanah}} m<sup>2</sup></a> 
             </ion-item>
+            
             <ion-item slot="start">
               Jumlah Kelas: &nbsp;
               <a>{{jumlah_kelas}}</a> 
+            </ion-item>
+            <ion-item slot="start">
+              Jumlah Kelas yang terdapat ac: &nbsp;
+              <a>{{jumlah_kelas_ac}}</a> 
             </ion-item>
             <ion-item slot="start">
               Jumlah Laboratorium: &nbsp;

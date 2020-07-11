@@ -46,6 +46,10 @@ export class SekolahService {
     return this.http.get("http://localhost/ta_backend/sekolah/list.php");
   }
 
+  ListSekolah_ortu():Observable<any>{
+    return this.http.get("http://localhost/ta_backend/sekolah/list_sekolah_ortu.php");
+  }
+
   ListSekolahAdmin(id):Observable<any>{
     return this.http.get("http://localhost/ta_backend/sekolah/list_admin_sekolah.php?iduser="+id);
   }
@@ -68,6 +72,14 @@ export class SekolahService {
 
   GetInformasiSekolah(id:string):Observable<any>{
     return this.http.get("http://localhost/ta_backend/sekolah/informasi_sekolah.php?id_sekolah="+id);
+  }
+
+  Validasi(id:string, validasi:string):Observable<any>{
+    let Data:FormData = new FormData();
+    Data.append('idsekolah', id); 
+    Data.append('validasi',validasi ); 
+    return this.http.post<any>
+    ("http://localhost/ta_backend/sekolah/validasi.php", Data);
   }
 
   update_InformasiSekolah(id:string, kolom:string, value:unknown):Observable<any>{
@@ -145,7 +157,9 @@ export class SekolahService {
     data.append('ruangAc', this.data2['ruangAc']);
     data.append('dayalistrik', this.data2['dayaListrik']);
     data.append('luastanah', this.data2['luasTanah']);
+    data.append('besar_bangunan', this.data2['besar_bangunan']);
     data.append('jumlahkelas', this.data2['jumlahKelas']);
+    data.append('jumlah_kelas_ac', this.data2['jumlah_kelas_ac']);
     data.append('jumlahlab', this.data2['jumlahLab']);
     data.append('jumlahperpus', this.data2['jumlahPerpus']);
     data.append('koorX', this.data2['X']);

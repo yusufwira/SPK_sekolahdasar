@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EkstrakurikulerService } from '../ekstrakurikuler.service';
 import { AlertController } from '@ionic/angular';
+import { Events } from '@ionic/angular';
 
 @Component({
   selector: 'app-ektrakurikuler-admin',
@@ -9,17 +10,26 @@ import { AlertController } from '@ionic/angular';
 })
 export class EktrakurikulerAdminComponent implements OnInit {
 
-  constructor(public eks:EkstrakurikulerService,public alertController: AlertController) { }
+  constructor(public eks:EkstrakurikulerService,public alertController: AlertController,public events: Events) { }
 
   nama="";
   public datas:Object;
 
-  ngOnInit() {
+  ngOnInit(){
+
+    
     
     this.eks.dataEkstra().subscribe((data) => {      
       this.datas = data;
-      console.log(data)
-      //this.ngOnInit();       
+      console.log(data)      
+    });
+
+    this.events.subscribe('data', (data) => {
+      //console.log(data)
+      this.eks.dataEkstra().subscribe((data) => {      
+        this.datas = data;
+        console.log(data)      
+      });
     });
   }
 

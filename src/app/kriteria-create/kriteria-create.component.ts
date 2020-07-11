@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { KriteriaService } from '../kriteria.service';
 import { AlertController } from '@ionic/angular';
-import {Router} from "@angular/router";
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-kriteria-create',
@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class KriteriaCreateComponent implements OnInit {
 
-  constructor(public kr:KriteriaService,public alertController: AlertController,private router: Router) { }
+  constructor(public kr:KriteriaService,private route: ActivatedRoute,public alertController: AlertController,private router: Router) { }
 
   ngOnInit() {}
 

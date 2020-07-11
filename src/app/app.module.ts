@@ -9,6 +9,8 @@ import {  FileUploadOptions } from '@ionic-native/file-transfer/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import {Map,tileLayer,marker} from 'leaflet';
+import { ModalController } from '@ionic/angular';
+
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -64,7 +66,7 @@ const appRoutes: Routes = [
   {path:'sekolah-update-gambar/:id',component:SekolahUpdateGambarComponent},
   {path:'sekolah-update-ekstra/:id',component:SekolahUpdateEkstraComponent},
   {path:'ekstrakurikuler-admin',component:EktrakurikulerAdminComponent},
-  {path:'ekstrakurikuler-create',component:EkstrakurikulerCreateComponent},
+  {path:'ekstrakurikuler-create/:prev_page/:id',component:EkstrakurikulerCreateComponent},
   {path:'kriteria-admin',component:KriteriaAdminComponent},
   {path:'kriteria-create',component:KriteriaCreateComponent},
   {path:'parent-admin',component:ParentAdminComponent},
@@ -133,7 +135,8 @@ const appRoutes: Routes = [
     //FileTransferObject,
     File,
     Camera,
-    Events
+    Events,
+    ModalController
   ],
   bootstrap: [AppComponent]
 })

@@ -13,9 +13,10 @@ export class DaftarsekolahComponent implements OnInit {
 
   public datas:any;
   ngOnInit() {
-    this.sekolah.ListSekolah().subscribe((data) => {    
-      this.datas = data;   
-      console.log(data);
+    this.sekolah.ListSekolah_ortu().subscribe((data) => {   
+      console.log(data); 
+      this.datas = data
+      
      });
      
   }

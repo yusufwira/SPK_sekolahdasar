@@ -15,7 +15,10 @@
       Pilih Ekstrakurikuler
     </ion-card-header>
     <ion-card-content>
-      
+      <div class="tambah" routerLink="/ekstrakurikuler-create/sekolah-create-b/{{idSekolah}}">
+        <ion-icon name="add"></ion-icon>
+        <a>Tambah Ekstrakurikuler</a>
+      </div>
       <ion-item *ngFor="let data of dataEkstra">
         <ion-checkbox color="primary" slot="start" (click) = "getValue(data.id)"></ion-checkbox>
         <ion-label>

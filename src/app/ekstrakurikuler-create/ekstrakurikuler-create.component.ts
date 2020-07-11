@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EkstrakurikulerService } from '../ekstrakurikuler.service';
 import { AlertController } from '@ionic/angular';
-import {Router} from "@angular/router";
+import { Router,ActivatedRoute } from '@angular/router';
+import { Events } from '@ionic/angular';
 
 @Component({
   selector: 'app-ekstrakurikuler-create',
@@ -10,13 +11,21 @@ import {Router} from "@angular/router";
 })
 export class EkstrakurikulerCreateComponent implements OnInit {
 
-  constructor(public eks:EkstrakurikulerService,public alertController: AlertController,private router: Router) { }
+  constructor(public eks:EkstrakurikulerService,private route: ActivatedRoute,public alertController: AlertController,private router: Router, public events: Events) { }
 
-  ngOnInit() {}
+  public prev_page="";
+  public temp_id = "";
+  ngOnInit() {
+    this.prev_page =this.route.snapshot.params['prev_page'];
+    this.temp_id = this.route.snapshot.params['id'];
+    console.log(this.prev_page, this.temp_id);
+  }
 
   nama="";
   deskripsi="";
-  inputnama(event:any) {    
+ 
+  inputnama(event:any) {  
+    
     this.nama = event.target.value;    
    }
 
@@ -37,8 +46,7 @@ export class EkstrakurikulerCreateComponent implements OnInit {
         this.peringatan('Save Success', 'Data has been in save'); 
       }
                     
-    });
-     //console.log(this.nama+this.deskripsi)
+    });    
    }
 
 
@@ -49,7 +57,14 @@ export class EkstrakurikulerCreateComponent implements OnInit {
      buttons: [{
       text: 'Okay',
       handler: () => {
-        this.router.navigate(['/ekstrakurikuler-admin'])
+        this.events.publish('data',data );
+        if(this.temp_id == '0'){
+          this.router.navigate(['/'+this.prev_page])
+        }
+        else{
+          this.router.navigate(['/'+this.prev_page+"/"+this.temp_id])
+        }
+       
       }
      }]
    }).then(alert=> alert.present());;

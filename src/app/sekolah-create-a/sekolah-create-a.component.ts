@@ -32,7 +32,7 @@ export class SekolahCreateAComponent implements OnInit {
     console.log(this.internet);
   }
 
-  public ruangAc="";
+  public ruangAc="semua";
   optionsAc():void{
     let item = this.ruangAc;
     this.ruangAc = item
@@ -40,17 +40,17 @@ export class SekolahCreateAComponent implements OnInit {
   }
 
 
-  listrik="";
+  listrik="ya";
   daya = false;
   optionsListrik():void{
     let item = this.listrik;
     this.listrik = item;
     console.log(this.listrik)
-    if(this.listrik == "ya"){
-      this.daya = true;
+    if(this.listrik == "tidak"){
+      this.daya = false;
     }
     else{
-      this.daya = false;
+      this.daya = true;
     }
   }
 
@@ -95,9 +95,19 @@ export class SekolahCreateAComponent implements OnInit {
     this.dayaListrik = event.target.value;    
   }
 
+  besar_bangunan="";
+  inputLuasBangunan(event:any) {    
+    this.besar_bangunan = event.target.value;    
+  }
+
   luasTanah="";
   inputLuasTanah(event:any) {    
     this.luasTanah = event.target.value;    
+  }
+
+  jumlah_kelas_ac="";
+  inputJumlahKelas_AC(event:any) {    
+    this.jumlah_kelas_ac = event.target.value;   
   }
 
   jumlahKelas="";
@@ -128,14 +138,14 @@ export class SekolahCreateAComponent implements OnInit {
   ket="";
   inputKeterangan(event:any) {    
     this.ket = event.target.value;  
-    console.log(this.ket);  
   }
 
   public idSekolahs="";
   Create():void{  
-    var data2 = {internet:this.internet, listrik:this.listrik, ruangAc:this.ruangAc, dayaListrik:this.dayaListrik, luasTanah:this.luasTanah, jumlahKelas:this.jumlahKelas, jumlahLab:this.jumlahLab, jumlahPerpus:this.jumlahPerpus, X:this.X, Y:this.Y, ket:this.ket};
+    var data2 = {internet:this.internet, listrik:this.listrik, ruangAc:this.ruangAc, dayaListrik:this.dayaListrik, luasTanah:this.luasTanah,besar_bangunan:this.besar_bangunan, jumlahKelas:this.jumlahKelas,jumlah_kelas_ac:this.jumlah_kelas_ac, jumlahLab:this.jumlahLab, jumlahPerpus:this.jumlahPerpus, X:this.X, Y:this.Y, ket:this.ket};
     this.sekolah.userid = localStorage['iduser'];
     this.sekolah.data1 = this.data1;
+    console.log(data2)
     this.sekolah.data2 = data2;
     this.sekolah.datafoto = this.datafoto;
     this.sekolah.Create().subscribe((data) => {      

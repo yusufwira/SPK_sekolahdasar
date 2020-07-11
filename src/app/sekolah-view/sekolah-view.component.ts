@@ -34,7 +34,9 @@ export class SekolahViewComponent implements OnInit {
   listrik="";
   daya_listrik="";
   luas_tanah="";
+  luas_bangunan = "";
   jumlah_kelas="";
+  jumlah_kelas_ac="";
   jumlah_lab="";
   jumlah_perpus="";
 
@@ -50,7 +52,7 @@ export class SekolahViewComponent implements OnInit {
   ngOnInit(){    
     this.sekolah.id = this.route.snapshot.params['id'];
     this.sekolah.DetailSekolah().subscribe((data) => {    
-      //console.log(data);
+      console.log(data);
       this.id_sekolah = data['idinfo_sekolah'];
       this.nama_sekolah = data['nama_sekolah'];
       this.alamat = data['alamat_sekolah'];
@@ -71,7 +73,9 @@ export class SekolahViewComponent implements OnInit {
       this.listrik = data['listrik'];
       this.daya_listrik = data['daya_listrik'];
       this.luas_tanah = data['luas_tanah'];
+      this.luas_bangunan = data['besar_bangunan'];
       this.jumlah_kelas = data['jumlah_kelas'];
+      this.jumlah_kelas_ac = data['jumlah_kelas_ac'];
       this.jumlah_lab = data['jumlah_laboratorium'];
       this.jumlah_perpus = data['jumlah_perpustakaan']
       

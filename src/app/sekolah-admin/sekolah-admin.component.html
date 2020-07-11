@@ -44,8 +44,19 @@
                   {{data.jumlah_komeh}} Review
                 </ion-col>
               </ion-row>
+
+              <ion-row *ngIf='data.status_sekolah == "Belum Tervalidasi" && hak == "Super_Admin"' class="card-action" >                                    
+                <ion-button color="success"  routerLink="/sekolah-view/{{data.idinfo_sekolah}}"><ion-icon name="eye"></ion-icon></ion-button>&nbsp; 
+                <ion-button color="primary" (click)="validasi(data.idinfo_sekolah, 'Tervalidasi')">Terima</ion-button> 
+                <ion-button color="danger" (click)="validasi(data.idinfo_sekolah, 'Tertolak')">Tolak</ion-button> &nbsp;
+                
+              </ion-row> 
+
+              <ion-row *ngIf='data.status_sekolah == "Belum Tervalidasi" && hak == "admin_sekolah"' class="card-action" >                            
+                <p>Menunggu Konfirmasi dari Admin</p>
+              </ion-row> 
            
-              <ion-row class="card-action">                            
+              <ion-row *ngIf='data.status_sekolah == "Tervalidasi"' class="card-action" >                            
                 <ion-button color="success"  routerLink="/sekolah-view/{{data.idinfo_sekolah}}"><ion-icon name="eye"></ion-icon></ion-button>&nbsp; 
                 <ion-button color="warning" routerLink="/sekolah-update-choice/{{data.idinfo_sekolah}}"><ion-icon name="create"></ion-icon></ion-button> &nbsp;
                 <ion-button color="danger" (click)="peringatan(data.idinfo_sekolah)"><ion-icon name="trash"></ion-icon></ion-button> &nbsp;

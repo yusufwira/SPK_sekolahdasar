@@ -27,22 +27,6 @@
       </ion-item>
   </ion-radio-group>
 
-  <ion-radio-group value="ruangAc" [(ngModel)]="ruangAc" (ionChange)="optionsAc()">
-    <ion-list-header>
-      <h5>Ruangan ber AC</h5>
-    </ion-list-header>
-
-    <ion-item>
-      <ion-label>Ya</ion-label>
-        <ion-radio slot="start" color="success" value="ya"></ion-radio>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Tidak</ion-label>
-        <ion-radio slot="start" color="danger"  value="tidak"></ion-radio>
-      </ion-item>
-  </ion-radio-group>
-
   <ion-radio-group value="Listrik" [(ngModel)]="listrik" (ionChange)="optionsListrik()" >
     <ion-list-header>
       <h5>Listrik</h5>
@@ -58,20 +42,56 @@
         <ion-radio slot="start" color="danger"  value="tidak"></ion-radio>
       </ion-item>
   </ion-radio-group>
-  <ion-item *ngIf="daya == true">
+
+  <ion-item *ngIf="listrik == 'ya'">
     <ion-label>Daya listrik : </ion-label>
     <ion-input placeholder="ex : 900 - 2000" (input)="inputDayaListrik($event)"></ion-input> WATT
   </ion-item>
 
-  <ion-item>
-    <ion-label>Luas Tanah : </ion-label>
-    <ion-input placeholder="ex : 25,000" (input)="inputLuasTanah($event)"></ion-input> M <sup>2</sup>
+  <ion-radio-group value="ruangAc" [(ngModel)]="ruangAc" (ionChange)="optionsAc()">
+    <ion-list-header>
+      <h5>Ruangan ber AC</h5>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Semua</ion-label>
+        <ion-radio slot="start" color="success" value="semua"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Sebagian</ion-label>
+        <ion-radio slot="start" color="danger"  value="sebagian"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Tidak ada</ion-label>
+        <ion-radio slot="start" color="danger"  value="tidak"></ion-radio>
+      </ion-item>
+      
+  </ion-radio-group>
+
+  <ion-item *ngIf="ruangAc == 'sebagian'">
+    <ion-label>Jumlah Kelas yang <br> mempunyai AC : </ion-label>
+    <ion-input placeholder="ex : 100"(input)="inputJumlahKelas_AC($event)"></ion-input> Kelas
   </ion-item>
 
   <ion-item>
     <ion-label>Jumlah Kelas : </ion-label>
     <ion-input placeholder="ex : 100"(input)="inputJumlahKelas($event)"></ion-input> Kelas
   </ion-item>
+
+  
+
+  <ion-item>
+    <ion-label>Luas bangunan : </ion-label>
+    <ion-input placeholder="ex : 25,000" (input)="inputLuasBangunan($event)"></ion-input> M <sup>2</sup>
+  </ion-item>
+  <ion-item>
+    <ion-label>Luas Tanah terbuka : </ion-label>
+    <ion-input placeholder="ex : 25,000" (input)="inputLuasTanah($event)"></ion-input> M <sup>2</sup>
+  </ion-item>
+
+  
 
   <ion-item>
     <ion-label>Jumlah Laboratorium : </ion-label>
