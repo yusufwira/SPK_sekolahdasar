@@ -4,9 +4,10 @@
 	  <ion-buttons slot="start">
       <ion-menu-button color="light"></ion-menu-button> 
     </ion-buttons>
-    <h1 class="title">Sistem Penunjang <br>Keputusan</h1>  
+    <h1 class="title">Pemilihan Sekolah <br> Dasar</h1>  
+    <!-- <p>Proses pemilihan sekolah dasar pada fitur ini menggunakan metode AHP yang dimana pengguna dapat memilih kriteria yang di inginkan dan sekolah yang dinginkan lalu dibandingkan berdasarkan masing-masing kirteria </p> -->
     <ion-card class="progres-bar">
-      <h3>Proses SPK</h3>
+      <h3>Proses Pemilihan</h3>
       <ion-progress-bar color="tertiary" value={{prog_bar}} ></ion-progress-bar>
     </ion-card>  
   </div>
@@ -86,7 +87,14 @@
                     <h6><b>{{data.nama_sekolah}}</b></h6>
                     <a>{{data.alamat_sekolah}}</a>
                     {{data.notelp_sekolah}}
-                    
+                  </ion-row>
+                  <ion-row class="left">
+                    <ion-col>
+                      <ion-icon name="star" class="star"></ion-icon> {{data.jumlah_like}}
+                    </ion-col>
+                    <ion-col>
+                      <ion-icon name="thumbs-up" class="thumbs-up"></ion-icon> {{data.jumlah_komeh}} Review
+                    </ion-col>
                   </ion-row>
                   <ion-row>
                     <ion-col>

@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
         icon: 'list-outline'
       },
       {
-        title: 'Sistem Penunjang Keputusan',
+        title: 'Pemilihan Sekolah Dasar',
         url: '/spk',
         icon: 'cog'
       },
