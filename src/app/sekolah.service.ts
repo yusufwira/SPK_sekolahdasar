@@ -148,6 +148,7 @@ export class SekolahService {
     data.append('guru', this.data1['guru']);
     data.append('laki', this.data1['laki']);
     data.append('perempuan', this.data1['perempuan']);
+    data.append('lulus', this.data1['lulus']);
     data.append('kurikulum', this.data1['kurikulum']);
     data.append('jam', this.data1['jam']);
      
@@ -162,6 +163,10 @@ export class SekolahService {
     data.append('jumlah_kelas_ac', this.data2['jumlah_kelas_ac']);
     data.append('jumlahlab', this.data2['jumlahLab']);
     data.append('jumlahperpus', this.data2['jumlahPerpus']);
+    data.append('uang_gedung', this.data2['uang_gedung']);
+    data.append('uang_daftar_ulang', this.data2['uang_daftar_ulang']);
+    data.append('uang_spp', this.data2['uang_spp']);
+    data.append('uang_seragam', this.data2['uang_seragam']);
     data.append('koorX', this.data2['X']);
     data.append('koorY', this.data2['Y']);
     data.append('ket', this.data2['ket']);    

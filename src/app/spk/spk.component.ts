@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { KriteriaService } from '../kriteria.service';
 import { SekolahService } from '../sekolah.service';
 import { SpkService } from '../spk.service';
+import {Map,tileLayer,marker} from 'leaflet';
+import {NativeGeocoder,NativeGeocoderOptions} from "@ionic-native/native-geocoder/ngx";
 
 @Component({
   selector: 'app-spk',
@@ -10,7 +12,10 @@ import { SpkService } from '../spk.service';
 })
 export class SpkComponent implements OnInit {
 
-  constructor(public kriteria:KriteriaService, public sekolah:SekolahService,public spk:SpkService) { }
+  map:Map;
+  newMarker:any;
+  address:string[];
+  constructor(private geocoder: NativeGeocoder,public kriteria:KriteriaService, public sekolah:SekolahService,public spk:SpkService) { }
   
   prog_bar:String="0.2";
   public datas_kriteria:Object;
@@ -25,9 +30,9 @@ export class SpkComponent implements OnInit {
       console.log(this.datas_kriteria);  
     });
 
-    this.sekolah.ListSekolah().subscribe((data) => {    
+    this.sekolah.ListSekolah_ortu().subscribe((data) => {    
       this.datas_sekolah = data;   
-      console.log(data);
+      console.log(data);          
      });
    
   }

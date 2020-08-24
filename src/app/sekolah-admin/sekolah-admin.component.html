@@ -48,11 +48,10 @@
               <ion-row *ngIf='data.status_sekolah == "Belum Tervalidasi" && hak == "Super_Admin"' class="card-action" >                                    
                 <ion-button color="success"  routerLink="/sekolah-view/{{data.idinfo_sekolah}}"><ion-icon name="eye"></ion-icon></ion-button>&nbsp; 
                 <ion-button color="primary" (click)="validasi(data.idinfo_sekolah, 'Tervalidasi')">Terima</ion-button> 
-                <ion-button color="danger" (click)="validasi(data.idinfo_sekolah, 'Tertolak')">Tolak</ion-button> &nbsp;
-                
+                <ion-button color="danger" (click)="validasi(data.idinfo_sekolah, 'Tertolak')">Tolak</ion-button> &nbsp;                
               </ion-row> 
 
-              <ion-row *ngIf='data.status_sekolah == "Belum Tervalidasi" && hak == "admin_sekolah"' class="card-action" >                            
+              <ion-row *ngIf='data.status_sekolah == "Belum Tervalidasi" && hak == "admin_sekolah"' class="card-action" >                                            
                 <p>Menunggu Konfirmasi dari Admin</p>
               </ion-row> 
            
@@ -82,7 +81,7 @@
           </ion-col>    
         </ion-row>
       </ion-card>     
-      <ion-card *ngIf="hak == 'Super_Admin'"  color="primary" class="fab-list-2"  routerLink="/sekolah-bobot">
+      <!-- <ion-card *ngIf="hak == 'Super_Admin'"  color="primary" class="fab-list-2"  routerLink="/sekolah-bobot">
         <ion-row>
           <ion-col size="4">
             <ion-icon name="arrow-forward"></ion-icon>
@@ -91,7 +90,7 @@
             <p> Set Bobot</p>
           </ion-col>    
         </ion-row>
-      </ion-card>  
+      </ion-card>   -->
     </ion-fab-list>
   </ion-fab>
 

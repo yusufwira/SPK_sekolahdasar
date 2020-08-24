@@ -125,6 +125,35 @@ export class SekolahCreateAComponent implements OnInit {
     this.jumlahPerpus = event.target.value;    
   }
 
+  uang_gedung = "";
+  display_uang_gedung = "";
+  inputUangGedung(event:any){
+    this.uang_gedung = event.target.value;  
+    this.display_uang_gedung = this.formatRupiah(this.uang_gedung,"Rp. ");
+  }
+
+  uang_daftar_ulang = "";
+  display_daftar_ulang = "";
+  inputUangDaftarUlang(event:any){
+    this.uang_daftar_ulang = event.target.value;  
+    this.display_daftar_ulang = this.formatRupiah(this.uang_daftar_ulang,"Rp. ");
+  }
+
+  uang_spp = "";
+  display_spp = "";
+  inputUangSPP(event:any){
+    this.uang_spp = event.target.value; 
+    this.display_spp = this.formatRupiah(this.uang_spp,"Rp. "); 
+  }
+
+  uang_seragam = "";
+  display_seragam = "";
+  inputUangSeragam(event:any){
+    this.uang_seragam = event.target.value;  
+    this.display_seragam = this.formatRupiah(this.uang_seragam,"Rp. ");
+  }
+  
+
   X="";
   inputX(event:any) {    
     this.X = event.target.value;    
@@ -142,7 +171,11 @@ export class SekolahCreateAComponent implements OnInit {
 
   public idSekolahs="";
   Create():void{  
-    var data2 = {internet:this.internet, listrik:this.listrik, ruangAc:this.ruangAc, dayaListrik:this.dayaListrik, luasTanah:this.luasTanah,besar_bangunan:this.besar_bangunan, jumlahKelas:this.jumlahKelas,jumlah_kelas_ac:this.jumlah_kelas_ac, jumlahLab:this.jumlahLab, jumlahPerpus:this.jumlahPerpus, X:this.X, Y:this.Y, ket:this.ket};
+    var data2 = {internet:this.internet, listrik:this.listrik, ruangAc:this.ruangAc, 
+      dayaListrik:this.dayaListrik, luasTanah:this.luasTanah,besar_bangunan:this.besar_bangunan, 
+      jumlahKelas:this.jumlahKelas,jumlah_kelas_ac:this.jumlah_kelas_ac, jumlahLab:this.jumlahLab, 
+      jumlahPerpus:this.jumlahPerpus,uang_gedung:this.uang_gedung, uang_daftar_ulang:this.uang_daftar_ulang, 
+      uang_spp:this.uang_spp, uang_seragam:this.uang_seragam, X:this.X, Y:this.Y, ket:this.ket};
     this.sekolah.userid = localStorage['iduser'];
     this.sekolah.data1 = this.data1;
     console.log(data2)
@@ -157,6 +190,25 @@ export class SekolahCreateAComponent implements OnInit {
     });
    
     
+  }
+
+
+
+  formatRupiah(angka, prefix){
+    var number_string = angka.replace(/[^,\d]/g, '').toString(),
+    split   		= number_string.split(','),
+    sisa     		= split[0].length % 3,
+    rupiah     		= split[0].substr(0, sisa),
+    ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+   
+    // tambahkan titik jika yang di input sudah menjadi angka ribuan
+    if(ribuan){
+      var separator = sisa ? '.' : '';
+      rupiah += separator + ribuan.join('.');
+    }
+   
+    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+    return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
   }
 
 

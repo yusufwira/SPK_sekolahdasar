@@ -10,6 +10,7 @@ import { File } from '@ionic-native/file/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import {Map,tileLayer,marker} from 'leaflet';
 import { ModalController } from '@ionic/angular';
+import {NativeGeocoder,NativeGeocoderOptions} from "@ionic-native/native-geocoder/ngx";
 
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -136,7 +137,8 @@ const appRoutes: Routes = [
     File,
     Camera,
     Events,
-    ModalController
+    ModalController,
+    NativeGeocoder
   ],
   bootstrap: [AppComponent]
 })

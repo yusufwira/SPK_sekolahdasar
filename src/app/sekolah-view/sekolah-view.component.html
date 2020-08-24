@@ -162,7 +162,38 @@
             <ion-item slot="start" *ngFor="let data of arr_eks">
               {{data.nama}}
             </ion-item>          
-            
+          </ion-card-content>
+        </ion-card>
+      </ion-col>      
+    </ion-row>
+
+    <ion-row>
+      <ion-col size='12'>
+        <ion-card >
+          <ion-card-header color="tertiary">
+            Biaya Sekolah
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item slot="start">
+              Uang Gedung : &nbsp;
+              {{uang_gedung}}   
+            </ion-item>
+            <ion-item slot="start">
+              Uang Daftar Ulang : &nbsp;
+              {{uang_daftar_ulang}}   
+            </ion-item>
+            <ion-item slot="start">
+              Uang SPP : &nbsp;
+              {{uang_spp}}   
+            </ion-item>
+            <ion-item slot="start">
+              Uang Seragam : &nbsp;
+              {{uang_seragam}}   
+            </ion-item>
+            <ion-item slot="start">
+              <b>Total Biaya :</b> &nbsp;
+              {{total_biaya}}   
+            </ion-item>
           </ion-card-content>
         </ion-card>
       </ion-col>      

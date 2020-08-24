@@ -40,6 +40,12 @@ export class SekolahViewComponent implements OnInit {
   jumlah_lab="";
   jumlah_perpus="";
 
+  uang_gedung = "";
+  uang_daftar_ulang = "";
+  uang_spp = "";
+  uang_seragam = "";
+  total_biaya = "";
+
   username="";
   id_sekolah= "";
 
@@ -77,7 +83,15 @@ export class SekolahViewComponent implements OnInit {
       this.jumlah_kelas = data['jumlah_kelas'];
       this.jumlah_kelas_ac = data['jumlah_kelas_ac'];
       this.jumlah_lab = data['jumlah_laboratorium'];
-      this.jumlah_perpus = data['jumlah_perpustakaan']
+      this.jumlah_perpus = data['jumlah_perpustakaan'];
+
+      this.uang_gedung = this.formatRupiah(data['uang_gedung'],'Rp. ');
+      this.uang_daftar_ulang = this.formatRupiah(data['uang_daftar_ulang'],'Rp. ');
+      this.uang_spp = this.formatRupiah(data['uang_spp'],'Rp. ');
+      this.uang_seragam = this.formatRupiah(data['uang_seragam'],'Rp. ');
+     
+      var total = (parseInt(data['uang_gedung'])+parseInt(data['uang_daftar_ulang'])+parseInt(data['uang_spp'])+parseInt(data['uang_seragam']));
+      this.total_biaya = this.formatRupiah(total.toString(),'Rp. ');
       
       this.username = data['username'];
       this.arr_foto = data['foto'];
@@ -130,21 +144,28 @@ export class SekolahViewComponent implements OnInit {
   locatePosition(x,y, nama){
     this.map.locate({setView:true}).on("locationfound", (e: any)=> {
        this.newMarker = marker([x,y], {autoPan: 
-        true}).addTo(this.map);
-        this.newMarker.bindPopup(nama).openPopup();
-        //this.getAddress(e.latitude, e.longitude); // This line is added
+        true}).addTo(this.map);       
+        this.newMarker.bindPopup(nama).openPopup();   
         this.newMarker.on("dragend", ()=> {
           const position = this.newMarker.getLatLng();
-          //this.getAddress(position.lat, position.lng);
+
          });
 
 
-        //  var markerFrom = marker([e.latitude,e.longitude]);
-        //  var markerTo =  marker([-7.2677567,112.8034008]);
-        //  var from = markerFrom.getLatLng();
-        //  var to = markerTo.getLatLng();
-         //this.getDistance(from, to);
+         var markerFrom = marker([e.latitude,e.longitude]);
+         console.log(markerFrom)
+         var markerTo =  marker([x,y]);
+         var from = markerFrom.getLatLng();
+         var to = markerTo.getLatLng();
+         var jarak = this.getDistance(from, to);
+         console.log(jarak)
     });
+  }
+
+  getDistance(from, to)
+  {
+    var jarak = (from.distanceTo(to)).toFixed(0)/1000;
+    return jarak;
   }
 
   rating1=false;
@@ -219,6 +240,24 @@ export class SekolahViewComponent implements OnInit {
      message: 'Anda sudah memberikan rating pada sekolah ini',
      buttons: ['OK']
    }).then(alert=> alert.present());;
+  }
+
+
+ formatRupiah(angka, prefix){
+    var number_string = angka.replace(/[^,\d]/g, '').toString(),
+    split   		= number_string.split(','),
+    sisa     		= split[0].length % 3,
+    rupiah     		= split[0].substr(0, sisa),
+    ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+   
+    // tambahkan titik jika yang di input sudah menjadi angka ribuan
+    if(ribuan){
+      var separator = sisa ? '.' : '';
+      rupiah += separator + ribuan.join('.');
+    }
+   
+    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+    return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
   }
 
  

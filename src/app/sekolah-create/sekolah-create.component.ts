@@ -75,6 +75,11 @@ export class SekolahCreateComponent implements OnInit {
     this.perempuan = event.target.value;    
    }
 
+   public lulus="";
+   inputSiswaLulus(event:any) {    
+    this.lulus = event.target.value;    
+   }
+
    public kurikulum="";
    inputKurikulum(event:any) {    
     this.kurikulum = event.target.value;    
@@ -100,6 +105,7 @@ export class SekolahCreateComponent implements OnInit {
       guru: this.guru,
       laki:this.laki,
       perempuan:this.perempuan,
+      lulus:this.lulus,
       kurikulum:this.kurikulum,
       jam:this.jam
 

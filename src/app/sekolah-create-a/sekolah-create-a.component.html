@@ -60,7 +60,7 @@
 
       <ion-item>
         <ion-label>Sebagian</ion-label>
-        <ion-radio slot="start" color="danger"  value="sebagian"></ion-radio>
+        <ion-radio slot="start" color="primary"  value="sebagian"></ion-radio>
       </ion-item>
 
       <ion-item>
@@ -80,8 +80,6 @@
     <ion-input placeholder="ex : 100"(input)="inputJumlahKelas($event)"></ion-input> Kelas
   </ion-item>
 
-  
-
   <ion-item>
     <ion-label>Luas bangunan : </ion-label>
     <ion-input placeholder="ex : 25,000" (input)="inputLuasBangunan($event)"></ion-input> M <sup>2</sup>
@@ -90,8 +88,6 @@
     <ion-label>Luas Tanah terbuka : </ion-label>
     <ion-input placeholder="ex : 25,000" (input)="inputLuasTanah($event)"></ion-input> M <sup>2</sup>
   </ion-item>
-
-  
 
   <ion-item>
     <ion-label>Jumlah Laboratorium : </ion-label>
@@ -103,10 +99,32 @@
     <ion-input placeholder="2" (input)="inputPerpus($event)"></ion-input> Perpustakaan
   </ion-item>
 
-  <ion-item>
-    <ion-label><b>Letak Sekolah</b> </ion-label>    
-  </ion-item> 
+  
 
+  <!-- Biaya -->
+  <h2><b>Biaya Sekolah</b></h2>
+  <ion-item>
+    <ion-label>Uang Gedung : </ion-label>
+    <ion-input placeholder="1000000"(input)="inputUangGedung($event)"></ion-input><br>
+  </ion-item>
+  <p>{{display_uang_gedung}}</p>
+  <ion-item>
+    <ion-label>Uang Daftar Ulang : </ion-label>
+    <ion-input placeholder="1000000"(input)="inputUangDaftarUlang($event)"></ion-input>
+  </ion-item>
+  <p>{{display_daftar_ulang}}</p>
+  <ion-item>
+    <ion-label>Uang SPP : </ion-label>
+    <ion-input placeholder="1000000"(input)="inputUangSPP($event)"></ion-input>
+  </ion-item>
+  <p>{{display_spp}}</p>
+  <ion-item>
+    <ion-label>Uang Seragam : </ion-label>
+    <ion-input placeholder="1000000"(input)="inputUangSeragam($event)"></ion-input>
+  </ion-item>
+  <p>{{display_seragam}}</p>
+  <br>
+  <h2><b>Letak Sekolah</b></h2>
   <ion-item>
     <ion-label>Koordinat X : </ion-label> 
     <ion-input placeholder="7.908983" (input)="inputX($event)"></ion-input> <br>
